@@ -1,8 +1,8 @@
 {
-	"name": "ractive-dynamodb-json-editor",
+	"name": "@awspilot/ractive-dynamodb-json-editor",
 	"version": "1.0.0",
 	"description": "ractivejs component for editing dynamodb style json object",
-	"main": "src/index.js",
+	"main": "dist/ractive-dynamodb-json-editor.js",
 	"scripts": {
 		"start": "webpack -w & node_modules/node-static/bin/cli.js",
 		"build": "webpack",
