@@ -21,8 +21,8 @@ Has no other component dependency.
 - [ ] String
 - [ ] Multiline String (textarea)
 - [x] Number
-- [ ] Boolean
-- [ ] Null
+- [x] Boolean
+- [ ] ~~Null~~
 - [ ] Binary
 - [ ] List
 - [ ] Map
