@@ -10,11 +10,11 @@ Has no other component dependency.
 - [x] Boolean data type
 - [x] Null data type
 - [x] Binary data type
-- [x] List data type
-- [x] Map data type
 - [x] StringSet data type
 - [x] NumberSet data type
 - [x] BinarySet data type
+- [x] List data type
+- [x] Map data type
 
 ### Value Editing
 
@@ -22,13 +22,14 @@ Has no other component dependency.
 - [ ] Multiline String (textarea)
 - [x] Number
 - [x] Boolean
-- [ ] ~~Null~~
-- [ ] Binary
-- [ ] List
-- [ ] Map
+- [ ] ~~Null~~ ( Yu no edit! )
+- [x] Binary (as Base64 encoded string )
+- [ ] Binary ( as upload )
 - [ ] StringSet
 - [ ] NumberSet
 - [ ] BinarySet
+- [ ] List
+- [ ] Map
 
 ### Misc Editing
 
@@ -41,11 +42,11 @@ Has no other component dependency.
 - [ ] Append into NumberSet
 - [ ] Append into BinarySet
 - [ ] Delete from Item
-- [ ] Delete from List
-- [ ] Delete from Map
 - [ ] Delete from StringSet
 - [ ] Delete from NumberSet
 - [ ] Delete from BinarySet
+- [ ] Delete from List
+- [ ] Delete from Map
 
 
 ### Value Validation
