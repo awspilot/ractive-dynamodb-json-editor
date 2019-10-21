@@ -1,0 +1,108 @@
+<style>
+
+</style>
+
+<div class="jsoneditor" style="{{style}}">
+	<div class="jsoneditor-menu"></div>
+	{{#if mode !== 'code'}}
+		<div class="jsoneditor-navigation-bar"></div>
+	{{/if}}
+
+	<div class="jsoneditor-outer {{#if mode !== 'code'}}has-main-menu-bar{{/if}} has-nav-bar">
+		{{#if mode === 'code'}}
+			<textarea style="width: 100%;min-height: 400px;">{{ JSON.stringify(item, null, "\t") }}</textarea>
+		{{else}}
+		<div class="jsoneditor-tree">
+			<div class="jsoneditor-tree-inner">
+
+				<table border=0 class="jsoneditor-tree">
+					<colgroup><col width="24px"><col width="24px"><col></colgroup>
+					<tbody>
+						<tr class=" jsoneditor-expandable">
+							<td></td>
+							<td><button type="button" class="jsoneditor-button jsoneditor-contextmenu"></button></td>
+							<td>
+								<table class="jsoneditor-values" style="border-collapse: collapse; margin-left: 0px;">
+									<tbody>
+										<tr>
+											<td class="jsoneditor-tree"><button type="button" class="jsoneditor-button jsoneditor-expanded" ></button></td>
+											<td class="jsoneditor-tree">
+												<div contenteditable="false" class="jsoneditor-readonly">Item</div>
+											</td>
+											<td class="jsoneditor-tree"></td>
+											<td class="jsoneditor-tree">
+												<div class="jsoneditor-value jsoneditor-object" title="">{ {{ Object.keys(item).length }} }</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						{{#each item }}
+							{{#if .hasOwnProperty('S')}}
+								<S key={{@key}} value={{ .S }} level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('N')}}
+								<N key={{@key}} value={{ .N }} level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('BOOL')}}
+								<BOOL key={{@key}} value={{ .BOOL }} level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('NULL')}}
+								<NULL key={{@key}} level="1" level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('B')}}
+								<B key={{@key}} value={{ .B }} level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('L')}}
+								<L key={{@key}} value={{ .L }} level="1" />
+							{{/if}}
+
+							{{#if .hasOwnProperty('M')}}
+								<M key={{@key}} value={{ .M }} level="1" />
+							{{/if}}
+
+						{{/each}}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		{{/if}}
+
+
+	</div>
+</div>
+
+<script>
+
+	import Ractive from 'ractive';
+
+	import S from './S';
+
+	export default Ractive.extend({
+		template: $TEMPLATE,
+		components: {
+			S: S,
+			// N: N,
+			// BOOL: BOOL,
+			// NULL: NULL,
+			// B: B,
+			// L: L,
+			// M: M,
+		},
+		css: $CSS,
+		data: function() {
+			return {}
+		},
+		delegate: false,
+		elToFocus: null,
+		on: {
+		},
+	});
+</script>
