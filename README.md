@@ -14,7 +14,7 @@ Has no other component dependency.
 - [x] Map data type
 - [x] StringSet data type
 - [x] NumberSet data type
-- [ ] BinarySet data type
+- [x] BinarySet data type
 
 ### Value Editing
 
