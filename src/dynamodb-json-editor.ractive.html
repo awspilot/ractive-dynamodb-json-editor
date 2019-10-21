@@ -290,7 +290,7 @@ div.jsoneditor-value.jsoneditor-null {
 								<table class="jsoneditor-values" style="border-collapse: collapse; margin-left: 0px;">
 									<tbody>
 										<tr>
-											<td class="jsoneditor-tree"><button type="button" class="jsoneditor-button jsoneditor-expanded" ></button></td>
+											<td class="jsoneditor-tree"><button type="button" class="jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}" on-click='@this.toggle('open')' ></button></td>
 											<td class="jsoneditor-tree">
 												<div contenteditable="false" class="jsoneditor-readonly">Item</div>
 											</td>
@@ -303,6 +303,7 @@ div.jsoneditor-value.jsoneditor-null {
 								</table>
 							</td>
 						</tr>
+						{{#if open}}
 						{{#each item }}
 							{{#if .hasOwnProperty('S')}}
 								<S key={{@key}} value={{ .S }} level="1" />
@@ -345,6 +346,7 @@ div.jsoneditor-value.jsoneditor-null {
 							{{/if}}
 
 						{{/each}}
+						{{/if}}
 					</tbody>
 				</table>
 
@@ -391,7 +393,9 @@ div.jsoneditor-value.jsoneditor-null {
 		},
 		css: $CSS,
 		data: function() {
-			return {}
+			return {
+				open: true,
+			}
 		},
 		delegate: false,
 		elToFocus: null,
