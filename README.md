@@ -31,12 +31,12 @@ ractivejs component for editing dynamodb style json object
 
 - [ ] Edit Attribute Names
 - [ ] Sort inside List / Stringset / NumberSet / BinarySet
-- [ ] Insert into Item
-- [ ] Insert into List
-- [ ] Insert into Map
-- [ ] Insert into StringSet
-- [ ] Insert into NumberSet
-- [ ] Insert into BinarySet
+- [ ] Append into Item
+- [ ] Append into List
+- [ ] Append into Map
+- [ ] Append into StringSet
+- [ ] Append into NumberSet
+- [ ] Append into BinarySet
 - [ ] Delete from Item
 - [ ] Delete from List
 - [ ] Delete from Map
