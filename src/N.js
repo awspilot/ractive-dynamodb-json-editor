@@ -18,7 +18,7 @@ export default Ractive.extend({
 						<td class='jsoneditor-tree'>\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
 						</td>\
-						<td class='jsoneditor-datatype'>Number</td>\
+						<!--<td class='jsoneditor-datatype'>Number</td>-->\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
 							<input type='number' value='{{value}}' class='jsoneditor-input jsoneditor-number' />\
