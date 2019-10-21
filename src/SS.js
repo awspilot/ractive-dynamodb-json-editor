@@ -25,7 +25,7 @@ export default Ractive.extend({
 						<td class='jsoneditor-tree'>\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
 						</td>\
-						<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\
+						<td class='jsoneditor-datatype'>StringSet[{{ value.length }}]</td>\
 						<td class='jsoneditor-tree'></td>\
 						<td class='jsoneditor-tree'>\
 							<div class='jsoneditor-value jsoneditor-array'></div>\
