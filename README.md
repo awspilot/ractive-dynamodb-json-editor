@@ -19,7 +19,8 @@ Has no other component dependency.
 ### Value Editing
 
 - [ ] String
-- [ ] Number
+- [ ] Multiline String (textarea)
+- [x] Number
 - [ ] Boolean
 - [ ] Null
 - [ ] Binary
