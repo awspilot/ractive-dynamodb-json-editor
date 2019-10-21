@@ -329,6 +329,10 @@ div.jsoneditor-value.jsoneditor-binary {
 								<SS key={{@key}} value={{ .SS }} level="1" />
 							{{/if}}
 
+							{{#if .hasOwnProperty('NS')}}
+								<NS key={{@key}} value={{ .NS }} level="1" />
+							{{/if}}
+
 						{{/each}}
 					</tbody>
 				</table>
@@ -351,6 +355,7 @@ div.jsoneditor-value.jsoneditor-binary {
 	import NULL from './NULL';
 	import B from './B';
 	import SS from './SS';
+	import NS from './NS';
 
 	// the nested ones
 	import L from './L';
@@ -364,9 +369,12 @@ div.jsoneditor-value.jsoneditor-binary {
 			BOOL: BOOL,
 			NULL: NULL,
 			B: B,
+			SS: SS,
+			NS: NS,
+
+			// the nexted ones
 			L: L,
 			M: M,
-			SS: SS,
 		},
 		css: $CSS,
 		data: function() {
