@@ -1,6 +1,8 @@
 # ractive-dynamodb-json-editor
 
-ractivejs component for editing dynamodb style json object
+Ractivejs component for editing dynamodb style json object.
+Has no other component dependency.
+
 
 ### Data Types
 - [x] String data type
@@ -11,7 +13,7 @@ ractivejs component for editing dynamodb style json object
 - [x] List data type
 - [x] Map data type
 - [x] StringSet data type
-- [ ] NumberSet data type
+- [x] NumberSet data type
 - [ ] BinarySet data type
 
 ### Value Editing
