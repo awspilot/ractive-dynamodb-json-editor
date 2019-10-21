@@ -18,16 +18,14 @@ Has no other component dependency.
 
 ### Value Editing
 
-- [ ] String
-- [ ] Multiline String (textarea)
+- [x] String
+- [x] Multiline String (textarea)
 - [x] Number
 - [x] Boolean
-- [ ] ~~Null~~ ( Yu no edit! )
+- [x] ~~Null~~ ( Yu no edit! )
 - [x] Binary (as Base64 encoded string )
 - [ ] Binary ( as upload )
-- [ ] StringSet
-- [ ] NumberSet
-- [ ] BinarySet
+- [x] StringSet, NumberSet, BinarySet (edit individual values)
 - [ ] List
 - [ ] Map
 
