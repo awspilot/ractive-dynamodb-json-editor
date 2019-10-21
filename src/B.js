@@ -21,7 +21,10 @@ export default Ractive.extend({
 						<td class='jsoneditor-datatype'>Binary</td>\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
+							<input value='{{value}}' class='jsoneditor-input jsoneditor-binary' />\
+							<!--\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' title=''>{{ value }}</div>\
+							-->\
 						</td>\
 					</tr>\
 				</tbody>\
