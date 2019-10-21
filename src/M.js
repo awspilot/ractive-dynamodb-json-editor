@@ -4,9 +4,11 @@ import N from './N';
 import BOOL from './BOOL';
 import NULL from './NULL';
 import B from './B';
+import SS from './SS';
+import NS from './NS';
+
 import L from './L';
 //import M from './M';
-import SS from './SS';
 
 var M = Ractive.extend({
 	components: {
@@ -16,6 +18,7 @@ var M = Ractive.extend({
 		NULL: NULL,
 		B: B,
 		SS: SS,
+		NS: NS,
 		L: L,
 	},
 
@@ -86,6 +89,10 @@ var M = Ractive.extend({
 \
 			{{#if .hasOwnProperty('SS')}}\
 				<SS key={{@key}} value={{ .SS }} level='{{ level + 1 }}' />\
+			{{/if}}\
+\
+			{{#if .hasOwnProperty('NS')}}\
+				<NS key={{@key}} value={{ .NS }} level='{{ level + 1 }}' />\
 			{{/if}}\
 \
 		{{/each}}\
