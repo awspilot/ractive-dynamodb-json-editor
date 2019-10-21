@@ -1,6 +1,6 @@
 # ractive-dynamodb-json-editor
 
-Ractivejs component for editing dynamodb style json object.
+Ractivejs component for editing dynamodb style json object.  
 Has no other component dependency.
 
 
