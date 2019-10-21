@@ -18,7 +18,7 @@ export default Ractive.extend({
 						<td class='jsoneditor-tree'>\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
 						</td>\
-						<td class='jsoneditor-datatype'>Boolean</td>\
+						<!--<td class='jsoneditor-datatype'>Boolean</td> -->\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
 							<input value='{{value}}' class='jsoneditor-input jsoneditor-boolean {{#if (value !== true ) && (value !== false) }}error{{/if}}' on-keyup='validate' on-blur='validate' />\
