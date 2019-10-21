@@ -1,7 +1,7 @@
 
 export default Ractive.extend({
 	template: "\
-	<tr class=''>\
+	<tr>\
 		<td>\
 			<button type='button' class='jsoneditor-button jsoneditor-dragarea' title=''></button>\
 		</td>\
