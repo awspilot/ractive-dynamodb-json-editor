@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/1.3.8/ractive.min.js"></script>
+		<script src="../dist/ractive-dynamodb-json-editor.js"></script>
+	</head>
+	<body>
+		<div class="ractive"></div>
+	</body>
+
+	<script>
+
+
+		var ractive = new Ractive({
+			el: '.ractive',
+			components: { jsoneditor: window['ractive-dynamodb-json-editor'], },
+			data: {
+				item: {
+					"bool": { "BOOL": true },
+					"string": { "S": "Hello World" },
+					"minusPI": { "N": "-3.14"},
+					"disabled": {"BOOL": false},
+					"azure_id": { "NULL": true },
+					"binary": { "B": "8J+YgQ==" },
+					"array": {
+						"L": [
+							{"S": "hello"},
+							{"NULL": true},
+							{"BOOL": true},
+							{"N": "1"},
+							{"B": "8J+YgQ=="},
+
+							{ "SS": ["a","b","c"] },
+							{ "NS": [ "1", "2", "3" ] },
+							{ "BS": [ "8J+YgQ==", "8J+YoQ==" ] },
+							{
+								"L": [
+									{"S": "hello"},
+									{"NULL": true},
+									{"BOOL": true},
+									{"N": "1"},
+									{"B": "8J+YgQ=="},
+
+								]
+							},
+							{
+								"M": {
+									"boolean": { "BOOL": true },
+									"null": { "NULL": true },
+									"number": { "N": "1" },
+									"string": { "S": "hello"},
+									"binary": { "B": "8J+YgQ==" },
+								}
+							},
+						]
+					},
+					"object": {
+						"M": {
+							"boolean": { "BOOL": true },
+							"null": { "NULL": true },
+							"number": { "N": "1" },
+							"string": { "S": "hello"},
+							"binary": { "B": "8J+YgQ==" },
+
+							"ss": { "SS": [ "a", "b" ] },
+							"ns": { "NS": [ "1", "2", "3" ] },
+							"bs": { "BS": [ "8J+YgQ==", "8J+YoQ==" ] },
+
+							"array": {"L": [{S: "string"},{N: "1", }] },
+							"object": { "M": {
+								"boolean": { "BOOL": true },
+								"null": { "NULL": true },
+								"number": { "N": "1" },
+								"string": { "S": "hello"},
+								"binary": { "B": "8J+YgQ==" },
+							} }
+						}
+					},
+					"ss": { "SS": [ "aaa", "bbb", "ccc" ] },
+					"ns": { "NS": [ "1", "2", "3" ] },
+					"bs": { "BS": [ "8J+YgQ==", "8J+YoQ==" ] },
+				}
+			},
+			template: `
+				<jsoneditor item={{item}} style="float:left;height: 300px;" />
+				<jsoneditor item={{item}} style="float:left;height: 300px;" mode="code" />
+			`
+		})
+	</Script>
+</html>
