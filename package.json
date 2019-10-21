@@ -1,0 +1,34 @@
+{
+	"name": "ractive-dynamodb-json-editor",
+	"version": "1.0.0",
+	"description": "ractivejs component for editing dynamodb style json object",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "webpack -w & node_modules/node-static/bin/cli.js",
+		"build": "webpack",
+		"watch": "webpack --config webpack.config.js --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/awspilot/dynamodb-ui.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/awspilot/ractive-dynamodb-json-editor/issues"
+	},
+	"homepage": "https://github.com/awspilot/ractive-dynamodb-json-editor",
+	"devDependencies": {
+		"ractive": "^1.3.8",
+		"ractive-bin-loader": "^1.0.1",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"webpack": "^4.41.0",
+		"webpack-cli": "^3.3.9",
+
+
+
+		"node-static": "^0.7.11"
+
+	},
+	"dependencies": {}
+}
