@@ -15,7 +15,7 @@ export default Ractive.extend({
 								<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
 							</td>\
 							<td class='jsoneditor-tree'>\
-								<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\
+								<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\
 							</td>\
 							<!-- <td class='jsoneditor-datatype'>String</td> -->\
 							<td class='jsoneditor-separator'>:</td>\
@@ -23,7 +23,8 @@ export default Ractive.extend({
 								{{#if editing}}\
 									<textarea class='jsoneditor-input jsoneditor-string' style='height: {{textarea_height}}px;line-height: {{line_height}}px' on-focus='focus' on-blur='blur' on-keyup='keyup' value='{{value}}'></textarea>\
 								{{else}}\
-									<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>\
+									<input class='jsoneditor-input jsoneditor-string' value='{{ JSON.stringify(value) }}' readonly='true' on-click='startEditing' /> \
+									<!--<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>-->\
 								{{/if}}\
 							</td>\
 						</tr>\

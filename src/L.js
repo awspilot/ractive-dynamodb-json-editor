@@ -48,7 +48,7 @@ var L = Ractive.extend({
 							<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\
 						</td>\
 						<td class='jsoneditor-tree'>\
-							<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
+							<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
 						</td>\
 						<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\
 						<td class='jsoneditor-tree'></td>\

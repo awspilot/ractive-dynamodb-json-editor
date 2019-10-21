@@ -16,7 +16,7 @@ export default Ractive.extend({
 							<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
 						</td>\
 						<td class='jsoneditor-tree'>\
-							<div contenteditable='true' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
+							<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\
 						</td>\
 						<!--<td class='jsoneditor-datatype'>Null</td>-->\
 						<td class='jsoneditor-separator'>:</td>\
