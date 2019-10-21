@@ -10,7 +10,7 @@ ractivejs component for editing dynamodb style json object
 - [x] Binary data type
 - [x] List data type
 - [x] Map data type
-- [ ] StringSet data type
+- [x] StringSet data type
 - [ ] NumberSet data type
 - [ ] BinarySet data type
 
