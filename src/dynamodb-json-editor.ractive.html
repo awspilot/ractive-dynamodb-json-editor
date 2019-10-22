@@ -11,7 +11,7 @@
 	line-height: 100%;
 
 	width: 534px;
-	box-shadow: 0 0 4px 2px rgba(0,0,0,.1)
+
 }
 .jsoneditor-menu {
 
@@ -21,9 +21,10 @@
 	margin: 0;
 	box-sizing: border-box;
 	color: #fff;
-	background-color: #3883fa;
-	border-bottom: 1px solid #3883fa;
 
+
+
+	border-bottom: 1px solid #3883fa;
 	background-color: #f4a460;
 	border-color: #f4a460;
 }
@@ -31,19 +32,20 @@
 
 
 
-.jsoneditor-navigation-bar {
+.jsoneditor-navbar {
 	width: 100%;
 	height: 26px;
 	line-height: 26px;
 	padding: 0;
 	margin: 0;
-	border-bottom: 1px solid #d3d3d3;
 	box-sizing: border-box;
 	color: grey;
-	background-color: #ebebeb;
 	overflow: hidden;
 	font-family: arial,sans-serif;
 	font-size: 10pt;
+
+	border-bottom: 1px solid #d3d3d3;
+	background-color: #ebebeb;
 }
 
 .jsoneditor-outer {
@@ -286,9 +288,9 @@ input.jsoneditor-input.jsoneditor-null:focus {
 </style>
 
 <div class="jsoneditor" style="{{style}}">
-	<div class="jsoneditor-menu"></div>
+	<div class="jsoneditor-menu {{.['menu-class']}}" style="{{.['menu-style']}}"></div>
 	{{#if mode !== 'code'}}
-		<div class="jsoneditor-navigation-bar"></div>
+		<div class="jsoneditor-navbar {{navbar-class}}" style={{.['navbar-style']}}></div>
 	{{/if}}
 
 	<div class="jsoneditor-outer {{#if mode !== 'code'}}has-main-menu-bar{{/if}} has-nav-bar">
