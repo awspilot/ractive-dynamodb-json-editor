@@ -27,6 +27,7 @@
 					"disabled": {"BOOL": false},
 					"azure_id": { "NULL": true },
 					"binary": { "B": "8J+YgQ==" },
+					"binary2": {"B": Uint8Array.from(atob("8J+YgQ=="), c => c.charCodeAt(0)) },
 					"array": {
 						"L": [
 							{"S": "hello"},
@@ -34,6 +35,7 @@
 							{"BOOL": true},
 							{"N": "1"},
 							{"B": "8J+YgQ=="},
+							{"B": Uint8Array.from(atob("8J+YgQ=="), c => c.charCodeAt(0)) },
 
 							{ "SS": ["a","b","c"] },
 							{ "NS": [ "1", "2", "3" ] },
@@ -66,6 +68,7 @@
 							"number": { "N": "1" },
 							"string": { "S": "hello"},
 							"binary": { "B": "8J+YgQ==" },
+							"binary2": {"B": Uint8Array.from(atob("8J+YgQ=="), c => c.charCodeAt(0)) },
 
 							"ss": { "SS": [ "a", "b" ] },
 							"ns": { "NS": [ "1", "2", "3" ] },
@@ -83,11 +86,11 @@
 					},
 					"ss": { "SS": [ "aaa", "bbb", "ccc" ] },
 					"ns": { "NS": [ "1", "2", "3" ] },
-					"bs": { "BS": [ "8J+YgQ==", "8J+YoQ==" ] },
+					"bs": { "BS": [ "8J+YgQ==", Uint8Array.from(atob("8J+YoQ=="), c => c.charCodeAt(0))  ] },
 				}
 			},
 			template: `
-				<jsoneditor item={{item}} navigationBar="{{true}}" style="float:left;height: 300px;margin: 20px;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;" />
+				<jsoneditor item={{item}} navigationBar="{{true}}" convert_uint8_to_base64={{false}} style="float:left;height: 300px;margin: 20px;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;" />
 				<jsoneditor item={{item}} style="float:left;height: 300px;" style="margin: 20px" mode="code" />
 			`
 		})
