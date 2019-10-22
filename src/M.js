@@ -111,6 +111,11 @@ var M = Ractive.extend({
 		<tr class='jsoneditor-append'></tr>\
 \
 	",
+	delete_key: function( key ) {
+		var value = this.get('value')
+		delete value[key]
+		this.set({value:value})
+	},
 	data: function() {
 		return {
 			open: true,
