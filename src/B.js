@@ -21,9 +21,9 @@ export default Ractive.extend({
 						<td class='jsoneditor-datatype'>Binary</td>\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
-							<input value='{{value}}' class='jsoneditor-input jsoneditor-binary' />\
+							<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary' />\
 							<!--\
-							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' >{{ value }}</div>\
+							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' >{{ updated_value }}</div>\
 							-->\
 						</td>\
 					</tr>\
@@ -32,4 +32,43 @@ export default Ractive.extend({
 		</td>\
 	</tr>\
 	",
+	data: function() {
+		return {
+			updated_value: '',
+		}
+	},
+	on: {
+		init: function() {
+			var value = this.get('value')
+			if ( typeof value === "string")
+				this.set({ updated_value: JSON.parse(JSON.stringify(value))})
+
+			if ( value instanceof Uint8Array )
+				this.set({ updated_value: btoa(String.fromCharCode.apply(null, value )) })
+
+			this.observe('updated_value', function(n,o, kp ) {
+
+				console.log('changed', n, o )
+
+				if ( typeof value === "string")
+					return this.set('value', n )
+
+				console.log("continued", value instanceof Uint8Array )
+
+				console.log("grr" )
+				try {
+					var new_ui8 = Uint8Array.from(atob(n), function (c) { return c.charCodeAt(0) } );
+					this.set({value: new_ui8 })
+					console.log(new_ui8)
+				} catch (e) {}
+
+
+				//if ( value instanceof Uint8Array ) {
+				//	console.log("grr", Uint8Array.from(atob(n), c => c.charCodeAt(0)) )
+				//}
+
+			})
+
+		},
+	}
 })
