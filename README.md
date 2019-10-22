@@ -66,18 +66,18 @@ Ractive.components.jsoneditor = jsoneditor;
 
 - [ ] Edit Attribute Names
 - [ ] Sort inside List / Stringset / NumberSet / BinarySet
+- [x] Delete from Item
+- [x] Delete from StringSet
+- [x] Delete from NumberSet
+- [x] Delete from BinarySet
+- [x] Delete from List
+- [x] Delete from Map
 - [ ] Append into Item
 - [ ] Append into List
 - [ ] Append into Map
 - [ ] Append into StringSet
 - [ ] Append into NumberSet
 - [ ] Append into BinarySet
-- [ ] Delete from Item
-- [ ] Delete from StringSet
-- [ ] Delete from NumberSet
-- [ ] Delete from BinarySet
-- [ ] Delete from List
-- [ ] Delete from Map
 
 
 ### Value Validation
