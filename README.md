@@ -1,7 +1,34 @@
 # ractive-dynamodb-json-editor
 
 Ractivejs component for editing dynamodb style json object.  
-Has no other component dependency.  
+Has no dependencies other than [Ractive framework](https://ractive.js.org/)  
+
+## Usage
+
+_Note: this component is a self-registering CommonJS module, and in the browser
+requires a module system such as Webpack or Browserify._
+
+    npm install @awspilot/ractive-dynamodb-json-editor
+
+### ES5:
+
+```js
+var Ractive = require('ractive');
+var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+Ractive.components.jsoneditor = jsoneditor;
+```
+
+### ES6/2015+:
+
+```js
+import Ractive from 'ractive';
+import jsoneditor from '@awspilot/ractive-dynamodb-json-editor';
+Ractive.components.jsoneditor = jsoneditor;
+```
+
+### In Ractive template:
+
+    <jsoneditor item={{item}} style="float:left;height: 300px;" style="margin: 20px" mode="code" />
 
 
 ### Data Types
