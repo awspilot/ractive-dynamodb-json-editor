@@ -32,7 +32,7 @@ export default Ractive.extend({
 				</table>\
 			</td>\
 			<td>\
-				<button type='button' class='jsoneditor-button ' >\
+				<button class='jsoneditor-button btn-delete-attribute' >\
 					<div class='trash-solid icon'></div>\
 				</button>\
 			</td>\
