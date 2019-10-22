@@ -113,7 +113,7 @@ var L = Ractive.extend({
 	",
 	delete_key: function( key ) {
 		var value = this.get('value')
-		delete value[key]
+		value = value.filter(function(v,idx,arr) { return idx !== key })
 		this.set({value:value})
 	},
 	data: function() {

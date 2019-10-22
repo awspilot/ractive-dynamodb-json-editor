@@ -47,6 +47,12 @@ export default Ractive.extend({
 	<tr class='jsoneditor-append'></tr>\
 \
 	",
+	delete_key: function( key ) {
+		var value = this.get('value')
+		console.log("delete ", key , " from ", value )
+		value = value.filter(function(v,idx,arr) { return idx !== key })
+		this.set({value:value})
+	},
 	data: function() {
 		return {
 			open: false,
