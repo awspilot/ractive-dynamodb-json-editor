@@ -534,7 +534,7 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	",
 	data: function() {
 		return {
-			open: false,
+			open: true,
 		}
 	},
 }));
@@ -653,7 +653,7 @@ var M = Ractive.extend({
 	",
 	data: function() {
 		return {
-			open: false,
+			open: true,
 		}
 	},
 })
@@ -774,7 +774,7 @@ var L = Ractive.extend({
 	",
 	data: function() {
 		return {
-			open: false,
+			open: true,
 		}
 	},
 })

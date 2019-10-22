@@ -111,7 +111,7 @@ var L = Ractive.extend({
 	",
 	data: function() {
 		return {
-			open: false,
+			open: true,
 		}
 	},
 })
