@@ -60,6 +60,9 @@ var L = Ractive.extend({
 			</table>\
 		</td>\
 		<td>\
+			<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\
+				<div class='trash-solid icon'></div>\
+			</button>\
 		</td>\
 	</tr>\
 \
@@ -121,5 +124,10 @@ var L = Ractive.extend({
 			open: true,
 		}
 	},
+	on: {
+		delete: function() {
+			this.parent.delete_key( this.get('key') )
+		}
+	}
 })
 export default L
