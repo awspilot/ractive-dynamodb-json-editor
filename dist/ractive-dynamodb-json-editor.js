@@ -353,9 +353,6 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 				if ( typeof value === "string")
 					return this.set('value', n )
 
-				console.log("continued", value instanceof Uint8Array )
-
-				console.log("grr" )
 				try {
 					var new_ui8 = Uint8Array.from(atob(n), function (c) { return c.charCodeAt(0) } );
 					this.set({value: new_ui8 })
@@ -363,9 +360,6 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 				} catch (e) {}
 
 
-				//if ( value instanceof Uint8Array ) {
-				//	console.log("grr", Uint8Array.from(atob(n), c => c.charCodeAt(0)) )
-				//}
 
 			})
 

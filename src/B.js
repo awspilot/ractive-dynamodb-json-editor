@@ -53,9 +53,6 @@ export default Ractive.extend({
 				if ( typeof value === "string")
 					return this.set('value', n )
 
-				console.log("continued", value instanceof Uint8Array )
-
-				console.log("grr" )
 				try {
 					var new_ui8 = Uint8Array.from(atob(n), function (c) { return c.charCodeAt(0) } );
 					this.set({value: new_ui8 })
@@ -63,9 +60,6 @@ export default Ractive.extend({
 				} catch (e) {}
 
 
-				//if ( value instanceof Uint8Array ) {
-				//	console.log("grr", Uint8Array.from(atob(n), c => c.charCodeAt(0)) )
-				//}
 
 			})
 
