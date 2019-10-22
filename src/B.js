@@ -40,15 +40,19 @@ export default Ractive.extend({
 	on: {
 		init: function() {
 			var value = this.get('value')
-			if ( typeof value === "string")
+			if ( typeof value === "string") {
 				this.set({ updated_value: JSON.parse(JSON.stringify(value))})
+				value = Uint8Array.from(atob(value), function(c) { return c.charCodeAt(0) })
+				this.set({value: value })
+			}
 
 			if ( value instanceof Uint8Array ) {
 				this.set({ updated_value: btoa(String.fromCharCode.apply(null, value )) })
-				if (this.get('convert_uint8_to_base64') === true ) {
-					value = btoa(String.fromCharCode.apply(null, value ))
-					this.set({value: value })
-				}
+
+
+				// this would convert Uint8Array to b64, but for aws-sdk we need Uint8Array
+				// value = btoa(String.fromCharCode.apply(null, value ))
+				// this.set({value: value })
 
 			}
 

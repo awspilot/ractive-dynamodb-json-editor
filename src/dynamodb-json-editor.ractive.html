@@ -347,15 +347,15 @@ input.jsoneditor-input.jsoneditor-null:focus {
 							{{/if}}
 
 							{{#if .hasOwnProperty('B')}}
-								<B key={{@key}} value={{ .B }} level="1" convert_uint8_to_base64={{convert_uint8_to_base64}} />
+								<B key={{@key}} value={{ .B }} level="1" />
 							{{/if}}
 
 							{{#if .hasOwnProperty('L')}}
-								<L key={{@key}} value={{ .L }} level="1" convert_uint8_to_base64={{convert_uint8_to_base64}} />
+								<L key={{@key}} value={{ .L }} level="1" />
 							{{/if}}
 
 							{{#if .hasOwnProperty('M')}}
-								<M key={{@key}} value={{ .M }} level="1" convert_uint8_to_base64={{convert_uint8_to_base64}} />
+								<M key={{@key}} value={{ .M }} level="1" />
 							{{/if}}
 
 							{{#if .hasOwnProperty('SS')}}
@@ -367,7 +367,7 @@ input.jsoneditor-input.jsoneditor-null:focus {
 							{{/if}}
 
 							{{#if .hasOwnProperty('BS')}}
-								<BS key={{@key}} value={{ .BS }} level="1" convert_uint8_to_base64={{convert_uint8_to_base64}} />
+								<BS key={{@key}} value={{ .BS }} level="1" />
 							{{/if}}
 
 						{{/each}}

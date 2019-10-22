@@ -340,15 +340,19 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	on: {
 		init: function() {
 			var value = this.get('value')
-			if ( typeof value === "string")
+			if ( typeof value === "string") {
 				this.set({ updated_value: JSON.parse(JSON.stringify(value))})
+				value = Uint8Array.from(atob(value), function(c) { return c.charCodeAt(0) })
+				this.set({value: value })
+			}
 
 			if ( value instanceof Uint8Array ) {
 				this.set({ updated_value: btoa(String.fromCharCode.apply(null, value )) })
-				if (this.get('convert_uint8_to_base64') === true ) {
-					value = btoa(String.fromCharCode.apply(null, value ))
-					this.set({value: value })
-				}
+
+
+				// this would convert Uint8Array to b64, but for aws-sdk we need Uint8Array
+				// value = btoa(String.fromCharCode.apply(null, value ))
+				// this.set({value: value })
 
 			}
 
@@ -525,7 +529,7 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 \
 	{{#if open}}\
 	{{#value}}\
-		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\
 	{{/value}}\
 	{{/if}}\
 \
@@ -621,15 +625,15 @@ var M = Ractive.extend({
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('B')}}\
-				<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+				<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('L')}}\
-				<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+				<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('M')}}\
-				<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+				<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('SS')}}\
@@ -641,7 +645,7 @@ var M = Ractive.extend({
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('BS')}}\
-				<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+				<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\
 			{{/if}}\
 \
 		{{/each}}\
@@ -743,15 +747,15 @@ var L = Ractive.extend({
 		{{/if}}\
 \
 		{{#if .hasOwnProperty('B')}}\
-			<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+			<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' />\
 		{{/if}}\
 \
 		{{#if .hasOwnProperty('L')}}\
-			<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+			<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' />\
 		{{/if}}\
 \
 		{{#if .hasOwnProperty('M')}}\
-			<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+			<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' />\
 		{{/if}}\
 \
 		{{#if .hasOwnProperty('SS')}}\
@@ -763,7 +767,7 @@ var L = Ractive.extend({
 		{{/if}}\
 \
 		{{#if .hasOwnProperty('BS')}}\
-			<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
+			<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\
 		{{/if}}\
 \
 	{{/value}}\
@@ -798,7 +802,7 @@ var L = Ractive.extend({
 
 
 /* harmony default export */ var dynamodb_json_editor_ractive = __webpack_exports__["default"] = (external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default.a.extend({
-	template: {v:4,t:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor",g:1},{n:"style",f:[{t:2,r:"style"}],t:13}],f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-menu ",{t:2,rx:{r:".",m:[{r:[],s:"\"menu-class\""}]}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:"\"menu-style\""}]}}],t:13}],f:[{t:7,e:"select",m:[{n:"value",f:[{t:2,r:"mode"}],t:13},{n:"style",f:"height: 20px;margin: 6px;",t:13}],f:[{t:7,e:"option",m:[{n:"value",f:"tree",t:13}],f:["Tree"]}," ",{t:7,e:"option",m:[{n:"value",f:"code",t:13}],f:["Code"]}]}]}," ",{t:4,f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-navbar ",{t:2,x:{r:["navbar","class"],s:"_0-_1"}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:"\"navbar-style\""}]}}],t:13}]}],n:50,x:{r:["mode","navigationBar"],s:"(_0===\"tree\")&&(_1===true)"}}," ",{t:7,e:"div",m:[{n:"class",f:["jsoneditor-outer has-main-menu-bar ",{t:4,f:["has-nav-bar"],n:50,x:{r:["mode","navigationBar"],s:"(_0===\"tree\")&&(_1===true)"}}],t:13}],f:[{t:4,f:[{t:7,e:"textarea",m:[{n:"style",f:"width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;",t:13}],f:[{t:2,x:{r:["item"],s:"JSON.stringify(_0,null,\"\\t\")"}}]}],n:50,x:{r:["mode"],s:"_0===\"code\""}},{t:4,f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree-inner",g:1}],f:[{t:7,e:"table",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1},{n:"border",f:"0",t:13,g:1}],f:[{t:7,e:"colgroup",f:[{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col"}]}," ",{t:7,e:"tbody",f:[{t:7,e:"tr",m:[{t:13,n:"class",f:" jsoneditor-expandable",g:1}],f:[{t:7,e:"td"}," ",{t:7,e:"td",f:[{t:7,e:"button",m:[{t:13,n:"class",f:"jsoneditor-button jsoneditor-contextmenu",g:1},{n:"type",f:"button",t:13,g:1}]}]}," ",{t:7,e:"td",f:[{t:7,e:"table",m:[{t:13,n:"style",f:"border-collapse: collapse; margin-left: 0px;",g:1},{t:13,n:"class",f:"jsoneditor-values",g:1}],f:[{t:7,e:"tbody",f:[{t:7,e:"tr",f:[{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"button",m:[{n:"type",f:"button",t:13,g:1},{n:"class",f:["jsoneditor-button ",{t:4,f:["jsoneditor-expanded"],n:50,r:"open"},{t:4,f:["jsoneditor-collapsed"],n:51,l:1}],t:13},{n:["click"],t:70,f:{r:["@this"],s:"[_0.toggle(\"open\")]"}}]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-readonly",g:1},{n:"contenteditable",f:"false",t:13}],f:["Item"]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-value jsoneditor-object",g:1}],f:["{ ",{t:2,x:{r:["item"],s:"Object.keys(_0).length"}}," }"]}]}]}]}]}]}]}," ",{t:4,f:[{t:4,f:[{t:4,f:[{t:7,e:"S",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".S"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"S\")"}}," ",{t:4,f:[{t:7,e:"N",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".N"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"N\")"}}," ",{t:4,f:[{t:7,e:"BOOL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BOOL"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"BOOL\")"}}," ",{t:4,f:[{t:7,e:"NULL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"NULL\")"}}," ",{t:4,f:[{t:7,e:"B",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".B"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"convert_uint8_to_base64",f:[{t:2,r:"convert_uint8_to_base64"}],t:13}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"B\")"}}," ",{t:4,f:[{t:7,e:"L",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".L"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"convert_uint8_to_base64",f:[{t:2,r:"convert_uint8_to_base64"}],t:13}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"L\")"}}," ",{t:4,f:[{t:7,e:"M",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".M"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"convert_uint8_to_base64",f:[{t:2,r:"convert_uint8_to_base64"}],t:13}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"M\")"}}," ",{t:4,f:[{t:7,e:"SS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".SS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"SS\")"}}," ",{t:4,f:[{t:7,e:"NS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".NS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"NS\")"}}," ",{t:4,f:[{t:7,e:"BS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BS"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"convert_uint8_to_base64",f:[{t:2,r:"convert_uint8_to_base64"}],t:13}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"BS\")"}}],n:52,r:"item"}],n:50,r:"open"}]}]}]}]}],n:51,l:1}]}]}],e:{"\"menu-class\"":function (){return("menu-class");},"\"menu-style\"":function (){return("menu-style");},"_0-_1":function (_0,_1){return(_0-_1);},"\"navbar-style\"":function (){return("navbar-style");},"(_0===\"tree\")&&(_1===true)":function (_0,_1){return((_0==="tree")&&(_1===true));},"JSON.stringify(_0,null,\"\\t\")":function (_0){return(JSON.stringify(_0,null,"\t"));},"_0===\"code\"":function (_0){return(_0==="code");},"[_0.toggle(\"open\")]":function (_0){return([_0.toggle("open")]);},"Object.keys(_0).length":function (_0){return(Object.keys(_0).length);},"_0.hasOwnProperty(\"S\")":function (_0){return(_0.hasOwnProperty("S"));},"_0.hasOwnProperty(\"N\")":function (_0){return(_0.hasOwnProperty("N"));},"_0.hasOwnProperty(\"BOOL\")":function (_0){return(_0.hasOwnProperty("BOOL"));},"_0.hasOwnProperty(\"NULL\")":function (_0){return(_0.hasOwnProperty("NULL"));},"_0.hasOwnProperty(\"B\")":function (_0){return(_0.hasOwnProperty("B"));},"_0.hasOwnProperty(\"L\")":function (_0){return(_0.hasOwnProperty("L"));},"_0.hasOwnProperty(\"M\")":function (_0){return(_0.hasOwnProperty("M"));},"_0.hasOwnProperty(\"SS\")":function (_0){return(_0.hasOwnProperty("SS"));},"_0.hasOwnProperty(\"NS\")":function (_0){return(_0.hasOwnProperty("NS"));},"_0.hasOwnProperty(\"BS\")":function (_0){return(_0.hasOwnProperty("BS"));}}},
+	template: {v:4,t:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor",g:1},{n:"style",f:[{t:2,r:"style"}],t:13}],f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-menu ",{t:2,rx:{r:".",m:[{r:[],s:"\"menu-class\""}]}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:"\"menu-style\""}]}}],t:13}],f:[{t:7,e:"select",m:[{n:"value",f:[{t:2,r:"mode"}],t:13},{n:"style",f:"height: 20px;margin: 6px;",t:13}],f:[{t:7,e:"option",m:[{n:"value",f:"tree",t:13}],f:["Tree"]}," ",{t:7,e:"option",m:[{n:"value",f:"code",t:13}],f:["Code"]}]}]}," ",{t:4,f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-navbar ",{t:2,x:{r:["navbar","class"],s:"_0-_1"}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:"\"navbar-style\""}]}}],t:13}]}],n:50,x:{r:["mode","navigationBar"],s:"(_0===\"tree\")&&(_1===true)"}}," ",{t:7,e:"div",m:[{n:"class",f:["jsoneditor-outer has-main-menu-bar ",{t:4,f:["has-nav-bar"],n:50,x:{r:["mode","navigationBar"],s:"(_0===\"tree\")&&(_1===true)"}}],t:13}],f:[{t:4,f:[{t:7,e:"textarea",m:[{n:"style",f:"width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;",t:13}],f:[{t:2,x:{r:["item"],s:"JSON.stringify(_0,null,\"\\t\")"}}]}],n:50,x:{r:["mode"],s:"_0===\"code\""}},{t:4,f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree-inner",g:1}],f:[{t:7,e:"table",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1},{n:"border",f:"0",t:13,g:1}],f:[{t:7,e:"colgroup",f:[{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col"}]}," ",{t:7,e:"tbody",f:[{t:7,e:"tr",m:[{t:13,n:"class",f:" jsoneditor-expandable",g:1}],f:[{t:7,e:"td"}," ",{t:7,e:"td",f:[{t:7,e:"button",m:[{t:13,n:"class",f:"jsoneditor-button jsoneditor-contextmenu",g:1},{n:"type",f:"button",t:13,g:1}]}]}," ",{t:7,e:"td",f:[{t:7,e:"table",m:[{t:13,n:"style",f:"border-collapse: collapse; margin-left: 0px;",g:1},{t:13,n:"class",f:"jsoneditor-values",g:1}],f:[{t:7,e:"tbody",f:[{t:7,e:"tr",f:[{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"button",m:[{n:"type",f:"button",t:13,g:1},{n:"class",f:["jsoneditor-button ",{t:4,f:["jsoneditor-expanded"],n:50,r:"open"},{t:4,f:["jsoneditor-collapsed"],n:51,l:1}],t:13},{n:["click"],t:70,f:{r:["@this"],s:"[_0.toggle(\"open\")]"}}]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-readonly",g:1},{n:"contenteditable",f:"false",t:13}],f:["Item"]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-value jsoneditor-object",g:1}],f:["{ ",{t:2,x:{r:["item"],s:"Object.keys(_0).length"}}," }"]}]}]}]}]}]}]}," ",{t:4,f:[{t:4,f:[{t:4,f:[{t:7,e:"S",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".S"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"S\")"}}," ",{t:4,f:[{t:7,e:"N",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".N"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"N\")"}}," ",{t:4,f:[{t:7,e:"BOOL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BOOL"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"BOOL\")"}}," ",{t:4,f:[{t:7,e:"NULL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"NULL\")"}}," ",{t:4,f:[{t:7,e:"B",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".B"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"B\")"}}," ",{t:4,f:[{t:7,e:"L",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".L"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"L\")"}}," ",{t:4,f:[{t:7,e:"M",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".M"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"M\")"}}," ",{t:4,f:[{t:7,e:"SS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".SS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"SS\")"}}," ",{t:4,f:[{t:7,e:"NS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".NS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"NS\")"}}," ",{t:4,f:[{t:7,e:"BS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:"_0.hasOwnProperty(\"BS\")"}}],n:52,r:"item"}],n:50,r:"open"}]}]}]}]}],n:51,l:1}]}]}],e:{"\"menu-class\"":function (){return("menu-class");},"\"menu-style\"":function (){return("menu-style");},"_0-_1":function (_0,_1){return(_0-_1);},"\"navbar-style\"":function (){return("navbar-style");},"(_0===\"tree\")&&(_1===true)":function (_0,_1){return((_0==="tree")&&(_1===true));},"JSON.stringify(_0,null,\"\\t\")":function (_0){return(JSON.stringify(_0,null,"\t"));},"_0===\"code\"":function (_0){return(_0==="code");},"[_0.toggle(\"open\")]":function (_0){return([_0.toggle("open")]);},"Object.keys(_0).length":function (_0){return(Object.keys(_0).length);},"_0.hasOwnProperty(\"S\")":function (_0){return(_0.hasOwnProperty("S"));},"_0.hasOwnProperty(\"N\")":function (_0){return(_0.hasOwnProperty("N"));},"_0.hasOwnProperty(\"BOOL\")":function (_0){return(_0.hasOwnProperty("BOOL"));},"_0.hasOwnProperty(\"NULL\")":function (_0){return(_0.hasOwnProperty("NULL"));},"_0.hasOwnProperty(\"B\")":function (_0){return(_0.hasOwnProperty("B"));},"_0.hasOwnProperty(\"L\")":function (_0){return(_0.hasOwnProperty("L"));},"_0.hasOwnProperty(\"M\")":function (_0){return(_0.hasOwnProperty("M"));},"_0.hasOwnProperty(\"SS\")":function (_0){return(_0.hasOwnProperty("SS"));},"_0.hasOwnProperty(\"NS\")":function (_0){return(_0.hasOwnProperty("NS"));},"_0.hasOwnProperty(\"BS\")":function (_0){return(_0.hasOwnProperty("BS"));}}},
 	components: {
 		S: S,
 		N: N,
