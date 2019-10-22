@@ -31,6 +31,9 @@ export default Ractive.extend({
 			</table>\
 		</td>\
 		<td>\
+			<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\
+				<div class='trash-solid icon'></div>\
+			</button>\
 		</td>\
 	</tr>\
 	",
@@ -44,6 +47,9 @@ export default Ractive.extend({
 			if (this.get('value') === 'false')
 				this.set('value', false )
 
+		},
+		delete: function() {
+			this.parent.delete_key( this.get('key') )
 		}
 	}
 })

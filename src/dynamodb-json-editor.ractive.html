@@ -447,7 +447,13 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 		},
 		delegate: false,
 		elToFocus: null,
+		delete_key: function( key ) {
+			var item = this.get('item')
+			delete item[key]
+			this.set({item:item})
+		},
 		on: {
+
 		},
 	});
 </script>
