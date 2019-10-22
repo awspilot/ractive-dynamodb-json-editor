@@ -57,11 +57,11 @@
 	bottom: 0px;
 	box-sizing: border-box;
 }
-.jsoneditor-outer.has-nav-bar {
-	top: 26px;
+.jsoneditor-outer.has-main-menu-bar {
+	top: 35px;
 }
 
-.jsoneditor-outer.has-nav-bar.has-main-menu-bar {
+.jsoneditor-outer.has-main-menu-bar.has-nav-bar {
 	top: 61px;
 }
 
@@ -289,11 +289,11 @@ input.jsoneditor-input.jsoneditor-null:focus {
 
 <div class="jsoneditor" style="{{style}}">
 	<div class="jsoneditor-menu {{.['menu-class']}}" style="{{.['menu-style']}}"></div>
-	{{#if mode !== 'code'}}
+	{{#if ((mode === 'tree') && (navigationBar === true)) }}
 		<div class="jsoneditor-navbar {{navbar-class}}" style={{.['navbar-style']}}></div>
 	{{/if}}
 
-	<div class="jsoneditor-outer {{#if mode !== 'code'}}has-main-menu-bar{{/if}} has-nav-bar">
+	<div class="jsoneditor-outer {{#if mode !== 'code'}}has-main-menu-bar{{/if}} {{#if ((mode === 'tree') && (navigationBar === true)) }}has-nav-bar{{/if}}">
 		{{#if mode === 'code'}}
 			<textarea style="width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;">{{ JSON.stringify(item, null, "\t") }}</textarea>
 		{{else}}
@@ -415,6 +415,10 @@ input.jsoneditor-input.jsoneditor-null:focus {
 		data: function() {
 			return {
 				open: true,
+				mode: 'tree', // tree | view | form | code | text | preview
+				mainMenuBar: true,
+				navigationBar: true,
+				statusBar: true,
 			}
 		},
 		delegate: false,
