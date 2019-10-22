@@ -343,8 +343,15 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 			if ( typeof value === "string")
 				this.set({ updated_value: JSON.parse(JSON.stringify(value))})
 
-			if ( value instanceof Uint8Array )
+			if ( value instanceof Uint8Array ) {
 				this.set({ updated_value: btoa(String.fromCharCode.apply(null, value )) })
+				if (this.get('convert_uint8_to_base64') === true ) {
+					value = btoa(String.fromCharCode.apply(null, value ))
+					this.set({value: value })
+				}
+
+			}
+
 
 			this.observe('updated_value', function(n,o, kp ) {
 
