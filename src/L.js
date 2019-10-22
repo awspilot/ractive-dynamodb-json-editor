@@ -59,6 +59,8 @@ var L = Ractive.extend({
 				</tbody>\
 			</table>\
 		</td>\
+		<td>\
+		</td>\
 	</tr>\
 \
 	{{#if open}}\

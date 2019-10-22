@@ -77,10 +77,9 @@ div.jsoneditor-tree table.jsoneditor-tree {
 
 div.jsoneditor td,
 div.jsoneditor th,
-div.jsoneditor tr {
-	padding: 0;
-	margin: 0;
-}
+div.jsoneditor tr { padding: 0;margin: 0; }
+
+div.jsoneditor tr:hover {background-color: #f0f0f0;}
 
 .jsoneditor-popover,
 .jsoneditor-schema-error,
@@ -133,11 +132,12 @@ div.jsoneditor-tree button.jsoneditor-button {
 	margin: 0;
 	border: none;
 	cursor: pointer;
+	background-color: transparent;
+
 }
 
 div.jsoneditor-tree button.jsoneditor-invisible {
 	visibility: hidden;
-	background: 0 0;
 }
 
 
@@ -285,6 +285,18 @@ input.jsoneditor-input.jsoneditor-null:focus {
 }
 
 
+
+
+
+
+/* icons */
+.trash-solid.icon { color: #aaa; position: absolute; margin-left: 5px; margin-top: 0px; width: 8px; height: 8px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-bottom: solid 1px currentColor; border-radius: 0 0 2px 2px; background-color: currentColor; }
+.trash-solid.icon:before { content: ''; position: absolute; left: -4px; top: -2px; width: 17px; height: 1px; background-color: currentColor; }
+.trash-solid.icon:after { content: ''; position: absolute; left: 0px; top: -5px; width: 7px; height: 2px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-top: solid 1px currentColor; background-color: currentColor; border-radius: 4px 4px 0 0; }
+
+
+
+
 </style>
 
 <div class="jsoneditor" style="{{style}}">
@@ -326,6 +338,8 @@ input.jsoneditor-input.jsoneditor-null:focus {
 										</tr>
 									</tbody>
 								</table>
+							</td>
+							<td>
 							</td>
 						</tr>
 						{{#if open}}

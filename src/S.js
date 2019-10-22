@@ -31,6 +31,11 @@ export default Ractive.extend({
 					</tbody>\
 				</table>\
 			</td>\
+			<td>\
+				<button type='button' class='jsoneditor-button ' >\
+					<div class='trash-solid icon'></div>\
+				</button>\
+			</td>\
 		</tr>\
 		",
 		data: function() {

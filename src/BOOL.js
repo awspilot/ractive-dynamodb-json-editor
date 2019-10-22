@@ -30,6 +30,8 @@ export default Ractive.extend({
 				</tbody>\
 			</table>\
 		</td>\
+		<td>\
+		</td>\
 	</tr>\
 	",
 	on: {

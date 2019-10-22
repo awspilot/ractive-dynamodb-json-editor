@@ -34,6 +34,8 @@ export default Ractive.extend({
 				</tbody>\
 			</table>\
 		</td>\
+		<td>\
+		</td>\
 	</tr>\
 \
 	{{#if open}}\
