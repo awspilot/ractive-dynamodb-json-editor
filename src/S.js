@@ -58,7 +58,6 @@ export default Ractive.extend({
 			keyup: function() {
 				var lines = this.get('value').split("\n").length
 				this.set('textarea_height', lines * this.get('line_height') )
-				console.log('keydown', lines )
 			},
 		}
 	})
