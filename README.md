@@ -28,7 +28,7 @@ Ractive.components.jsoneditor = jsoneditor;
 
 ### In Ractive template:
 
-    <jsoneditor item={{item}} style="float:left;height: 300px;" style="margin: 20px" mode="code" />
+    <jsoneditor item={{item}} style="float:left;height: 300px;" style="margin: 20px" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;" />
 
 
 ### Data Types
