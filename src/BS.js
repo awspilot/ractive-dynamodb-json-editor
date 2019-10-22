@@ -38,7 +38,7 @@ export default Ractive.extend({
 \
 	{{#if open}}\
 	{{#value}}\
-		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\
+		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
 	{{/value}}\
 	{{/if}}\
 \

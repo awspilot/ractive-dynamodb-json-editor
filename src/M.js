@@ -79,15 +79,15 @@ var M = Ractive.extend({
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('B')}}\
-				<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\
+				<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('L')}}\
-				<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\
+				<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('M')}}\
-				<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\
+				<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('SS')}}\
@@ -99,7 +99,7 @@ var M = Ractive.extend({
 			{{/if}}\
 \
 			{{#if .hasOwnProperty('BS')}}\
-				<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\
+				<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' convert_uint8_to_base64={{convert_uint8_to_base64}} />\
 			{{/if}}\
 \
 		{{/each}}\
