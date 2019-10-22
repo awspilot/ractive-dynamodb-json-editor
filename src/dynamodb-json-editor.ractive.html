@@ -288,12 +288,17 @@ input.jsoneditor-input.jsoneditor-null:focus {
 </style>
 
 <div class="jsoneditor" style="{{style}}">
-	<div class="jsoneditor-menu {{.['menu-class']}}" style="{{.['menu-style']}}"></div>
+	<div class="jsoneditor-menu {{.['menu-class']}}" style="{{.['menu-style']}}">
+		<select value='{{mode}}' style="height: 20px;margin: 6px;">
+			<option value='tree'>Tree</option>
+			<option value='code'>Code</option>
+		</select>
+	</div>
 	{{#if ((mode === 'tree') && (navigationBar === true)) }}
 		<div class="jsoneditor-navbar {{navbar-class}}" style={{.['navbar-style']}}></div>
 	{{/if}}
 
-	<div class="jsoneditor-outer {{#if mode !== 'code'}}has-main-menu-bar{{/if}} {{#if ((mode === 'tree') && (navigationBar === true)) }}has-nav-bar{{/if}}">
+	<div class="jsoneditor-outer has-main-menu-bar {{#if ((mode === 'tree') && (navigationBar === true)) }}has-nav-bar{{/if}}">
 		{{#if mode === 'code'}}
 			<textarea style="width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;">{{ JSON.stringify(item, null, "\t") }}</textarea>
 		{{else}}
