@@ -740,6 +740,84 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 
 //import M from './M';
 
+
+var appender = Ractive.extend({
+	template: "\
+	{{#if type === null}}\
+	<tr class='jsoneditor-appender'>\
+		<td></td><td></td><td>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\
+		</td><td></td>\
+	</tr>\
+	{{/if}}\
+	\
+	{{#if type !== null }}\
+		<tr>\
+			<td>\
+				<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\
+			</td>\
+			<td>\
+				<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\
+			</td>\
+			<td>\
+				<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\
+					<tbody>\
+						<tr>\
+							<td class='jsoneditor-tree'>\
+								<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
+							</td>\
+							<td class='jsoneditor-tree'>\
+								<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>\
+									<input value={{field_name}} placeholder='Attribute Name' />\
+								</div>\
+							</td>\
+							<td class='jsoneditor-separator'>:</td>\
+							<td class='jsoneditor-tree' style='width: 100%;'>\
+								<select value={{type}} on-change='typepicked'>\
+									<option value='S'>String</option>\
+									<option value='N'>Number</option>\
+									<option value='BOOL'>Boolean</option>\
+									<option value='NULL'>Null</option>\
+									<option value='B'>Binary</option>\
+									<option value='SS'>StringSet</option>\
+									<option value='NS'>NumberSet</option>\
+									<option value='BS'>BinarySet</option>\
+									<option value='L'>List</option>\
+									<option value='M'>Map</option>\
+								</select>\
+							</td>\
+						</tr>\
+					</tbody>\
+				</table>\
+			</td>\
+			<td>\
+				<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\
+					<div class='trash-solid icon'></div>\
+				</button>\
+			</td>\
+		</tr>\
+	{{/if}}\
+	",
+	data: function() {
+		return {
+			type: null,
+			field_name: '',
+		}
+	},
+	on: {
+		delete: function() {
+			this.set({type: null,})
+		},
+		pickatype: function() {
+			this.set({type: ''})
+		},
+		typepicked: function() {
+			this.parent.prepend_attribute( this.get('type'), this.get('index'), this.get('field_name'))
+			this.set({type: null})
+		}
+	},
+})
+
 var M = Ractive.extend({
 	components: {
 		S: S,
@@ -752,6 +830,8 @@ var M = Ractive.extend({
 		BS: BS,
 
 		L: L_0,
+
+		appender: appender,
 	},
 
 	onconfig: function(options) {
@@ -795,11 +875,7 @@ var M = Ractive.extend({
 		</tr>\
 \
 		{{#if open}}\
-		<tr class='jsoneditor-appender'>\
-			<td></td><td></td><td>\
-				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
-			</td><td></td>\
-		</tr>\
+			<appender level={{level}} index={{null}}/>\
 		{{#each value }}\
 			{{#if .hasOwnProperty('S')}}\
 				<S key={{@key}} value={{ .S }} level='{{ level + 1 }}' />\
@@ -863,6 +939,57 @@ var M = Ractive.extend({
 			open: false,
 		}
 	},
+	prepend_attribute: function( type, idx, field_name ) {
+		console.log('prepend', type, idx, field_name )
+		var value = this.get('value')
+
+		var to_add;
+
+		if (type === "S")
+			to_add = {S: ""}
+
+		if (type === "N")
+			to_add = {N: ""}
+
+		if (type === "BOOL")
+			to_add = {BOOL: ""}
+
+		if (type === "NULL")
+			to_add = {NULL: "true"}
+
+		if (type === "B")
+			to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+
+		if (type === "SS")
+			to_add = {SS: []}
+
+		if (type === "NS")
+			to_add = {NS: []}
+
+		if (type === "BS")
+			to_add = {BS: []}
+
+		if (type === "L")
+			to_add = {L: []}
+
+		if (type === "M")
+			to_add = {M: {}}
+
+		var newmap = {}
+		newmap[field_name] = to_add
+
+		if (idx === null) {
+			Object.keys(value).map(function(k) {
+				newmap[k] = value[k];
+			})
+		} else {
+			//value.splice( idx+1, 0, to_add )
+		}
+
+		this.set({value: {}})
+		this.set({value:newmap})
+
+	},
 	on: {
 		delete: function() {
 			this.parent.delete_key( this.get('key') )
@@ -886,7 +1013,7 @@ var M = Ractive.extend({
 //import L from './L';
 
 
-var appender = Ractive.extend({
+var L_appender = Ractive.extend({
 	template: "\
 	{{#if type === null}}\
 	<tr class='jsoneditor-appender'>\
@@ -974,7 +1101,7 @@ var L = Ractive.extend({
 		//L: L,
 		M: M_0,
 
-		appender: appender,
+		appender: L_appender,
 	},
 
 	onconfig: function(options) {
@@ -1107,6 +1234,12 @@ var L = Ractive.extend({
 
 		if (type === "BS")
 			to_add = {BS: []}
+
+		if (type === "L")
+			to_add = {L: []}
+
+		if (type === "M")
+			to_add = {M: {}}
 
 
 		if (idx === null) {

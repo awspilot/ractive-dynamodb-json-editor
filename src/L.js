@@ -233,6 +233,12 @@ var L = Ractive.extend({
 		if (type === "BS")
 			to_add = {BS: []}
 
+		if (type === "L")
+			to_add = {L: []}
+
+		if (type === "M")
+			to_add = {M: {}}
+
 
 		if (idx === null) {
 			value = [to_add].concat(value)
