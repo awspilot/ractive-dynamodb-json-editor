@@ -75,7 +75,7 @@ Ractive.components.jsoneditor = jsoneditor;
 - [ ] Append into Item
 - [ ] Append into List
 - [ ] Append into Map
-- [ ] Append into StringSet
+- [x] Append into StringSet
 - [ ] Append into NumberSet
 - [ ] Append into BinarySet
 
