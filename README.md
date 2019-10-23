@@ -59,13 +59,14 @@ Ractive.components.jsoneditor = jsoneditor;
 - [x] Binary (as Base64 encoded string )
 - [ ] Binary ( as upload )
 - [x] StringSet, NumberSet, BinarySet (edit individual values)
-- [ ] List
-- [ ] Map
+- [x] List ( individual List values can be edited )
+- [x] Map ( individual Map values can be edited )
 
 ### Misc Editing
 
 - [ ] Edit Attribute Names
-- [ ] Sort inside List / Stringset / NumberSet / BinarySet
+- [ ] Sort List
+- [x] ~~Sort Stringset / NumberSet / BinarySet~~ ( N/A by AWS )
 - [x] Delete from Item
 - [x] Delete from StringSet
 - [x] Delete from NumberSet
@@ -74,7 +75,7 @@ Ractive.components.jsoneditor = jsoneditor;
 - [x] Delete from Map
 - [ ] Append into Item
 - [x] Append into List
-- [ ] Append into Map
+- [x] Append into Map
 - [x] Append into StringSet
 - [x] Append into NumberSet
 - [x] Append into BinarySet
