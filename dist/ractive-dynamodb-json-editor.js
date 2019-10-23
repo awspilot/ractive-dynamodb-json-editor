@@ -916,11 +916,7 @@ var M = Ractive.extend({
 			{{#if .hasOwnProperty('BS')}}\
 				<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\
 			{{/if}}\
-			<tr class='jsoneditor-appender'>\
-				<td></td><td></td><td>\
-					<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
-				</td><td></td>\
-			</tr>\
+			<appender level={{level}} index={{@key}}/>\
 \
 		{{/each}}\
 		{{/if}}\
@@ -976,14 +972,18 @@ var M = Ractive.extend({
 			to_add = {M: {}}
 
 		var newmap = {}
-		newmap[field_name] = to_add
 
 		if (idx === null) {
+			newmap[field_name] = to_add
 			Object.keys(value).map(function(k) {
 				newmap[k] = value[k];
 			})
 		} else {
-			//value.splice( idx+1, 0, to_add )
+			Object.keys(value).map(function(k) {
+				newmap[k] = value[k];
+				if (k === idx)
+					newmap[field_name] = to_add
+			})
 		}
 
 		this.set({value: {}})
