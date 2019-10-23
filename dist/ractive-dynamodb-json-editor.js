@@ -726,22 +726,9 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	}
 }));
 
-// CONCATENATED MODULE: ./M.js
+// CONCATENATED MODULE: ./M_appender.js
 
-
-
-
-
-
-
-
-
-
-
-//import M from './M';
-
-
-var appender = Ractive.extend({
+/* harmony default export */ var M_appender = (Ractive.extend({
 	template: "\
 	{{#if type === null}}\
 	<tr class='jsoneditor-appender'>\
@@ -816,7 +803,23 @@ var appender = Ractive.extend({
 			this.set({type: null})
 		}
 	},
-})
+}));
+
+// CONCATENATED MODULE: ./M.js
+
+
+
+
+
+
+
+
+
+
+
+//import M from './M';
+
+
 
 var M = Ractive.extend({
 	components: {
@@ -831,7 +834,7 @@ var M = Ractive.extend({
 
 		L: L_0,
 
-		appender: appender,
+		appender: M_appender,
 	},
 
 	onconfig: function(options) {
@@ -1013,7 +1016,7 @@ var M = Ractive.extend({
 //import L from './L';
 
 
-var L_appender = Ractive.extend({
+var appender = Ractive.extend({
 	template: "\
 	{{#if type === null}}\
 	<tr class='jsoneditor-appender'>\
@@ -1101,7 +1104,7 @@ var L = Ractive.extend({
 		//L: L,
 		M: M_0,
 
-		appender: L_appender,
+		appender: appender,
 	},
 
 	onconfig: function(options) {
@@ -1258,85 +1261,6 @@ var L = Ractive.extend({
 	}
 })
 /* harmony default export */ var L_0 = (L);
-
-// CONCATENATED MODULE: ./M_appender.js
-
-/* harmony default export */ var M_appender = (Ractive.extend({
-	template: "\
-	{{#if type === null}}\
-	<tr class='jsoneditor-appender'>\
-		<td></td><td></td><td>\
-				<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\
-		</td><td></td>\
-	</tr>\
-	{{/if}}\
-	\
-	{{#if type !== null }}\
-		<tr>\
-			<td>\
-				<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\
-			</td>\
-			<td>\
-				<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\
-			</td>\
-			<td>\
-				<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\
-					<tbody>\
-						<tr>\
-							<td class='jsoneditor-tree'>\
-								<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
-							</td>\
-							<td class='jsoneditor-tree'>\
-								<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>\
-									<input value={{field_name}} placeholder='Attribute Name' />\
-								</div>\
-							</td>\
-							<td class='jsoneditor-separator'>:</td>\
-							<td class='jsoneditor-tree' style='width: 100%;'>\
-								<select value={{type}} on-change='typepicked'>\
-									<option value='S'>String</option>\
-									<option value='N'>Number</option>\
-									<option value='BOOL'>Boolean</option>\
-									<option value='NULL'>Null</option>\
-									<option value='B'>Binary</option>\
-									<option value='SS'>StringSet</option>\
-									<option value='NS'>NumberSet</option>\
-									<option value='BS'>BinarySet</option>\
-									<option value='L'>List</option>\
-									<option value='M'>Map</option>\
-								</select>\
-							</td>\
-						</tr>\
-					</tbody>\
-				</table>\
-			</td>\
-			<td>\
-				<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\
-					<div class='trash-solid icon'></div>\
-				</button>\
-			</td>\
-		</tr>\
-	{{/if}}\
-	",
-	data: function() {
-		return {
-			type: null,
-			field_name: '',
-		}
-	},
-	on: {
-		delete: function() {
-			this.set({type: null,})
-		},
-		pickatype: function() {
-			this.set({type: ''})
-		},
-		typepicked: function() {
-			this.parent.prepend_attribute( this.get('type'), this.get('index'), this.get('field_name'))
-			this.set({type: null})
-		}
-	},
-}));
 
 // CONCATENATED MODULE: ./dynamodb-json-editor.ractive.html
 
