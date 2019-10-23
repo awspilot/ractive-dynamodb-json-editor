@@ -560,14 +560,14 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	{{#if open}}\
 	<tr class='jsoneditor-appender'>\
 		<td></td><td></td><td>\
-			<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+			<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\
 		</td><td></td>\
 	</tr>\
 	{{#value}}\
 		<N key={{@index}} value={{ . }} level='{{ level + 1 }}' />\
 		<tr class='jsoneditor-appender'>\
 			<td></td><td></td><td>\
-				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\
 			</td><td></td>\
 		</tr>\
 	{{/value}}\
@@ -589,6 +589,17 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	on: {
 		delete: function() {
 			this.parent.delete_key( this.get('key') )
+		},
+		prepend: function() {
+			var value = this.get('value')
+			value = [""].concat(value)
+			this.set({value:value})
+		},
+		elementinsert: function(e) {
+			var value = this.get('value')
+			var idx = parseInt(e.resolve().split('.').pop())
+			value.splice( idx+1, 0, "" )
+			this.set({value:value})
 		}
 	}
 }));
