@@ -3,6 +3,10 @@
 Ractivejs component for editing dynamodb style json object.  
 Has no dependencies other than [Ractive framework](https://ractive.js.org/)  
 
+
+
+[DEMO](https://awspilot.github.io/ractive-dynamodb-json-editor/demo/)
+
 ## Usage
 
 _Note: this component is a self-registering CommonJS module, and in the browser
