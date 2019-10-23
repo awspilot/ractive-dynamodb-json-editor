@@ -1,6 +1,6 @@
 {
 	"name": "@awspilot/ractive-dynamodb-json-editor",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "ractivejs component for editing dynamodb style json object",
 	"main": "dist/ractive-dynamodb-json-editor.js",
 	"scripts": {
