@@ -357,11 +357,7 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 							</td>
 						</tr>
 						{{#if open}}
-						<tr class='jsoneditor-appender'>
-							<td></td><td></td><td>
-								<div style='margin-left: {{ 0 + 40}}px;'></div>
-							</td><td></td>
-						</tr>
+							<appender level={{0}} index={{null}}/>
 						{{#each item }}
 							{{#if .hasOwnProperty('S')}}
 								<S key={{@key}} value={{ .S }} level="1" />
@@ -402,11 +398,7 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 							{{#if .hasOwnProperty('BS')}}
 								<BS key={{@key}} value={{ .BS }} level="1" />
 							{{/if}}
-							<tr class='jsoneditor-appender'>
-								<td></td><td></td><td>
-									<div style='margin-left: {{ 0 + 40 }}px;'></div>
-								</td><td></td>
-							</tr>
+							<appender level={{0}} index={{@key}}/>
 						{{/each}}
 						{{/if}}
 					</tbody>
@@ -437,6 +429,8 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 	import L from './L';
 	import M from './M';
 
+	import appender from './M_appender.js';
+
 	export default Ractive.extend({
 		template: $TEMPLATE,
 		components: {
@@ -452,6 +446,8 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 			// the nexted ones
 			L: L,
 			M: M,
+
+			appender: appender,
 		},
 		css: $CSS,
 		data: function() {
@@ -462,6 +458,63 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 				navigationBar: true,
 				statusBar: true,
 			}
+		},
+		prepend_attribute: function( type, idx, field_name ) {
+			console.log('prepend', type, idx, field_name )
+
+			var value = this.get('item')
+
+			var to_add;
+
+			if (type === "S")
+				to_add = {S: ""}
+
+			if (type === "N")
+				to_add = {N: ""}
+
+			if (type === "BOOL")
+				to_add = {BOOL: ""}
+
+			if (type === "NULL")
+				to_add = {NULL: "true"}
+
+			if (type === "B")
+				to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+
+			if (type === "SS")
+				to_add = {SS: []}
+
+			if (type === "NS")
+				to_add = {NS: []}
+
+			if (type === "BS")
+				to_add = {BS: []}
+
+			if (type === "L")
+				to_add = {L: []}
+
+			if (type === "M")
+				to_add = {M: {}}
+
+			var newmap = {}
+
+			if (idx === null) {
+				newmap[field_name] = to_add
+				Object.keys(value).map(function(k) {
+					newmap[k] = value[k];
+				})
+			} else {
+				Object.keys(value).map(function(k) {
+					newmap[k] = value[k];
+					if (k === idx)
+						newmap[field_name] = to_add
+				})
+			}
+
+			this.set({item: {}})
+			this.set({item:newmap})
+
+
 		},
 		delegate: false,
 		elToFocus: null,

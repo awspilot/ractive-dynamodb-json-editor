@@ -66,7 +66,7 @@ Ractive.components.jsoneditor = jsoneditor;
 
 - [ ] Edit Attribute Names
 - [ ] Sort List
-- [x] ~~Sort Stringset / NumberSet / BinarySet~~ ( N/A by AWS )
+- [x] ~~Sort Stringset / NumberSet / BinarySet~~ ( Yu no can! )
 - [x] Delete from Item
 - [x] Delete from StringSet
 - [x] Delete from NumberSet
