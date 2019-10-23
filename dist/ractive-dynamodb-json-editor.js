@@ -954,7 +954,7 @@ var appender = Ractive.extend({
 			this.set({type: ''})
 		},
 		typepicked: function() {
-			this.parent.prepend_attribute( this.get('type'))
+			this.parent.prepend_attribute( this.get('type'), this.get('index'))
 			this.set({type: null})
 		}
 	},
@@ -1018,7 +1018,7 @@ var L = Ractive.extend({
 	</tr>\
 \
 	{{#if open}}\
-		<appender level={{level}} />\
+		<appender level={{level}} index={{null}}/>\
 	{{#value}}\
 		{{#if .hasOwnProperty('S')}}\
 			<S key={{@index}} value={{ .S }} level='{{ level + 1 }}' />\
@@ -1060,7 +1060,7 @@ var L = Ractive.extend({
 			<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\
 		{{/if}}\
 \
-		<appender level={{level}} />\
+		<appender level={{level}} index={{@index}}/>\
 		\
 	{{/value}}\
 	{{/if}}\
@@ -1078,33 +1078,43 @@ var L = Ractive.extend({
 			open: false,
 		}
 	},
-	prepend_attribute: function( type ) {
+	prepend_attribute: function( type, idx ) {
 
 		var value = this.get('value')
 
+		var to_add;
+
 		if (type === "S")
-			value = [{S: ""}].concat(value)
+			to_add = {S: ""}
 
 		if (type === "N")
-			value = [{N: ""}].concat(value)
+			to_add = {N: ""}
 
 		if (type === "BOOL")
-			value = [{BOOL: ""}].concat(value)
+			to_add = {BOOL: ""}
 
 		if (type === "NULL")
-			value = [{NULL: "true"}].concat(value)
+			to_add = {NULL: "true"}
 
 		if (type === "B")
-			value = [{B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }].concat(value)
+			to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
 
 		if (type === "SS")
-			value = [{SS: []}].concat(value)
+			to_add = {SS: []}
 
 		if (type === "NS")
-			value = [{NS: []}].concat(value)
+			to_add = {NS: []}
 
 		if (type === "BS")
-			value = [{BS: []}].concat(value)
+			to_add = {BS: []}
+
+
+		if (idx === null) {
+			value = [to_add].concat(value)
+		} else {
+			value.splice( idx+1, 0, to_add )
+		}
+
 
 		this.set({value:value})
 	},
