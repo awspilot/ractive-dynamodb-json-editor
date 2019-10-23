@@ -754,9 +754,7 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 								<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
 							</td>\
 							<td class='jsoneditor-tree'>\
-								<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>\
-									<input value={{field_name}} placeholder='Attribute Name' />\
-								</div>\
+								<input value={{field_name}} placeholder='Attribute Name' />\
 							</td>\
 							<td class='jsoneditor-separator'>:</td>\
 							<td class='jsoneditor-tree' style='width: 100%;'>\
