@@ -1002,21 +1002,9 @@ var M = Ractive.extend({
 
 /* harmony default export */ var M_0 = (M);
 
-// CONCATENATED MODULE: ./L.js
+// CONCATENATED MODULE: ./L_appender.js
 
-
-
-
-
-
-
-
-
-
-//import L from './L';
-
-
-var appender = Ractive.extend({
+/* harmony default export */ var L_appender = (Ractive.extend({
 	template: "\
 	{{#if type === null}}\
 	<tr class='jsoneditor-appender'>\
@@ -1088,7 +1076,23 @@ var appender = Ractive.extend({
 			this.set({type: null})
 		}
 	},
-})
+}));
+
+// CONCATENATED MODULE: ./L.js
+
+
+
+
+
+
+
+
+
+
+//import L from './L';
+
+
+
 
 var L = Ractive.extend({
 	components: {
@@ -1104,7 +1108,7 @@ var L = Ractive.extend({
 		//L: L,
 		M: M_0,
 
-		appender: appender,
+		appender: L_appender,
 	},
 
 	onconfig: function(options) {
