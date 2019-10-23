@@ -21,7 +21,7 @@ export default Ractive.extend({
 						<!--<td class='jsoneditor-datatype'>Null</td>-->\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
-							<input value='null' class='jsoneditor-input jsoneditor-null' readonly='true' />\
+							<div class='jsoneditor-input jsoneditor-null' >null</div>\
 							<!--<div class='jsoneditor-value jsoneditor-null' >null</div>-->\
 						</td>\
 					</tr>\

@@ -20,7 +20,7 @@ export default Ractive.extend({
 						</td>\
 						<!--<td class='jsoneditor-datatype'>Number</td>-->\
 						<td class='jsoneditor-separator'>:</td>\
-						<td class='jsoneditor-tree'>\
+						<td class='jsoneditor-tree' style='width: 100%;'>\
 							<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\
 							<!--\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\
