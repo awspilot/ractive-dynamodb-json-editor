@@ -953,7 +953,7 @@ var M = Ractive.extend({
 			to_add = {BOOL: ""}
 
 		if (type === "NULL")
-			to_add = {NULL: "true"}
+			to_add = {NULL: true }
 
 		if (type === "B")
 			to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
@@ -1228,7 +1228,7 @@ var L = Ractive.extend({
 			to_add = {BOOL: ""}
 
 		if (type === "NULL")
-			to_add = {NULL: "true"}
+			to_add = {NULL: true}
 
 		if (type === "B")
 			to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
@@ -1330,7 +1330,7 @@ var L = Ractive.extend({
 			to_add = {BOOL: ""}
 
 		if (type === "NULL")
-			to_add = {NULL: "true"}
+			to_add = {NULL: true}
 
 		if (type === "B")
 			to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
