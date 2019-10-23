@@ -73,7 +73,7 @@ Ractive.components.jsoneditor = jsoneditor;
 - [x] Delete from List
 - [x] Delete from Map
 - [ ] Append into Item
-- [ ] Append into List
+- [x] Append into List
 - [ ] Append into Map
 - [x] Append into StringSet
 - [x] Append into NumberSet
