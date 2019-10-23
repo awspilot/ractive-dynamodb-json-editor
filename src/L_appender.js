@@ -29,7 +29,8 @@ export default Ractive.extend({
 							</td>\
 							<td class='jsoneditor-separator'>:</td>\
 							<td class='jsoneditor-tree' style='width: 100%;'>\
-								<select value={{type}} on-change='typepicked'>\
+								<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\
+									<option value=''>Select Data Type</option>\
 									<option value='S'>String</option>\
 									<option value='N'>Number</option>\
 									<option value='BOOL'>Boolean</option>\

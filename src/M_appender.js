@@ -25,11 +25,11 @@ export default Ractive.extend({
 								<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\
 							</td>\
 							<td class='jsoneditor-tree'>\
-								<input value={{field_name}} placeholder='Attribute Name' />\
+								<input value={{field_name}} placeholder='Attribute Name' style='margin-top: 3px;' />\
 							</td>\
 							<td class='jsoneditor-separator'>:</td>\
 							<td class='jsoneditor-tree' style='width: 100%;'>\
-								<select value={{type}} on-change='typepicked'>\
+								<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\
 									<option value='S'>String</option>\
 									<option value='N'>Number</option>\
 									<option value='BOOL'>Boolean</option>\
