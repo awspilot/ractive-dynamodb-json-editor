@@ -651,16 +651,18 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	{{#if open}}\
 		<tr class='jsoneditor-appender'>\
 			<td></td><td></td><td>\
-				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;'  on-click='prepend'></div>\
 			</td><td></td>\
 		</tr>\
 	{{#value}}\
+		{{#if !hide}}\
 		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\
 		<tr class='jsoneditor-appender'>\
 			<td></td><td></td><td>\
-				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\
 			</td><td></td>\
 		</tr>\
+		{{/if}}\
 	{{/value}}\
 	{{/if}}\
 \
@@ -675,11 +677,29 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 	data: function() {
 		return {
 			open: false,
+			hide: false, // used to hide and show elements to force re-render
 		}
 	},
 	on: {
 		delete: function() {
 			this.parent.delete_key( this.get('key') )
+		},
+		prepend: function() {
+			var value = this.get('value')
+			value = [ Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) ].concat(value)
+			this.set({value:value})
+
+			this.set('hide', true)
+			this.set('hide', false )
+		},
+		elementinsert: function(e) {
+			var value = this.get('value')
+			var idx = parseInt(e.resolve().split('.').pop())
+			value.splice( idx+1, 0, Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) )
+			this.set({value:value})
+
+			this.set('hide', true)
+			this.set('hide', false )
 		}
 	}
 }));
