@@ -81,6 +81,15 @@ div.jsoneditor tr { padding: 0;margin: 0; }
 
 div.jsoneditor tr:hover {background-color: #f0f0f0;}
 
+div.jsoneditor tr.jsoneditor-appender {}
+div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) {position: relative;height: 4px;}
+div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) > div {cursor: row-resize;}
+div.jsoneditor tr.jsoneditor-appender > td:nth-child(4) {width: 32px;}
+
+div.jsoneditor tr.jsoneditor-appender:hover {background-color: transparent;}
+div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) {}
+div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) > div {height: 4px;background-color: #000099}
+
 .jsoneditor-popover,
 .jsoneditor-schema-error,
 div.jsoneditor td,
@@ -348,6 +357,11 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 							</td>
 						</tr>
 						{{#if open}}
+						<tr class='jsoneditor-appender'>
+							<td></td><td></td><td>
+								<div style='margin-left: {{ 0 + 40}}px;'></div>
+							</td><td></td>
+						</tr>
 						{{#each item }}
 							{{#if .hasOwnProperty('S')}}
 								<S key={{@key}} value={{ .S }} level="1" />
@@ -388,7 +402,11 @@ tr:hover .btn-delete-attribute {display: inline-block;}
 							{{#if .hasOwnProperty('BS')}}
 								<BS key={{@key}} value={{ .BS }} level="1" />
 							{{/if}}
-
+							<tr class='jsoneditor-appender'>
+								<td></td><td></td><td>
+									<div style='margin-left: {{ 0 + 40 }}px;'></div>
+								</td><td></td>
+							</tr>
 						{{/each}}
 						{{/if}}
 					</tbody>

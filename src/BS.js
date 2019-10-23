@@ -42,8 +42,18 @@ export default Ractive.extend({
 	</tr>\
 \
 	{{#if open}}\
+		<tr class='jsoneditor-appender'>\
+			<td></td><td></td><td>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+			</td><td></td>\
+		</tr>\
 	{{#value}}\
 		<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\
+		<tr class='jsoneditor-appender'>\
+			<td></td><td></td><td>\
+				<div style='margin-left: {{ 24 * level + 40 }}px;'></div>\
+			</td><td></td>\
+		</tr>\
 	{{/value}}\
 	{{/if}}\
 \
@@ -57,7 +67,7 @@ export default Ractive.extend({
 	},
 	data: function() {
 		return {
-			open: true,
+			open: false,
 		}
 	},
 	on: {
