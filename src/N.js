@@ -21,7 +21,7 @@ export default Ractive.extend({
 						<!--<td class='jsoneditor-datatype'>Number</td>-->\
 						<td class='jsoneditor-separator'>:</td>\
 						<td class='jsoneditor-tree'>\
-							<input type='number' value='{{value}}' class='jsoneditor-input jsoneditor-number' />\
+							<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\
 							<!--\
 							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\
 							-->\
@@ -37,9 +37,21 @@ export default Ractive.extend({
 		</td>\
 	</tr>\
 	",
+	data: function() {
+		return {
+			mirror_value: '',
+		}
+	},
 	on: {
 		delete: function() {
 			this.parent.delete_key( this.get('key') )
-		}
+		},
+		init: function() {
+			var value = this.get('value')
+			this.set('mirror_value', value )
+			this.observe("mirror_value", function( n, o, kp ) {
+				this.set({value: parseFloat(n) ? n.toString() : '' })
+			})
+		},
 	}
 })
