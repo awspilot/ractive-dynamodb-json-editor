@@ -40,6 +40,15 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: 'babel-loader'
+			},
+			{
+					test: /\.ractive\.html$/,
+					use: 'babel-loader'
+			},
+			{
 				test: /\.ractive\.html$/,
 				exclude: /(node_modules|bower_components)/,
 				use: [
