@@ -68,6 +68,9 @@ export default Ractive.extend({
 			this.set({type: ''})
 		},
 		typepicked: function() {
+			if (!this.get('type'))
+				return;
+
 			this.parent.prepend_attribute( this.get('type'), this.get('index'))
 			this.set({type: null})
 		}

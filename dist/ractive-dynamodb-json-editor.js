@@ -726,14 +726,24 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\t{{#if type === null}}\n\t<tr class=\'jsoneditor-appender\'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style=\'margin-left: {{ 24 * level + 40 }}px;\' on-click=\'pickatype\'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-dragarea\' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-contextmenu\' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class=\'jsoneditor-values\' style=\'border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;\'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\'>\n\t\t\t\t\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-invisible\' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder=\'Attribute Name\' style=\'margin-top: 3px;\' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-separator\'>:</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\' style=\'width: 100%;\'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change=\'typepicked\' style=\'margin-top: 3px;\'>\n\t\t\t\t\t\t\t\t\t<option value=\'\'>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value=\'BOOL\'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value=\'NULL\'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value=\'SS\'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'NS\'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'BS\'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'L\'>List</option>\n\t\t\t\t\t\t\t\t\t<option value=\'M\'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class=\'jsoneditor-button btn-delete-attribute\' on-click=\'delete\' >\n\t\t\t\t\t<div class=\'trash-solid icon\'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t',
+	template: '\n\t{{#if type === null}}\n\t<tr class=\'jsoneditor-appender\'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style=\'margin-left: {{ 24 * level + 40 }}px;\' on-click=\'pickatype\'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-dragarea\' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-contextmenu\' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class=\'jsoneditor-values\' style=\'border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;\'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\'>\n\t\t\t\t\t\t\t\t<button type=\'button\' class=\'jsoneditor-button jsoneditor-invisible\' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder=\'Attribute Name\' style=\'margin-top: 3px;\' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-separator\'>:</td>\n\t\t\t\t\t\t\t<td class=\'jsoneditor-tree\' style=\'width: 100%;\'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change=\'typepicked\' style=\'margin-top: 3px;\' disabled={{type_disabled}}>\n\t\t\t\t\t\t\t\t\t<option value=\'\'>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value=\'BOOL\'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value=\'NULL\'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value=\'SS\'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'NS\'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'BS\'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value=\'L\'>List</option>\n\t\t\t\t\t\t\t\t\t<option value=\'M\'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class=\'jsoneditor-button btn-delete-attribute\' on-click=\'delete\' >\n\t\t\t\t\t<div class=\'trash-solid icon\'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t',
 	data: function data() {
 		return {
 			type: null,
-			field_name: ''
+			field_name: '',
+			type_disabled: true
 		};
 	},
 	on: {
+		init: function init() {
+			this.observe('field_name', function (n, o, kp) {
+				if (n.trim()) {
+					this.set({ type_disabled: false });
+				} else {
+					this.set({ type_disabled: true });
+				}
+			});
+		},
 		delete: function _delete() {
 			this.set({ type: null });
 		},
@@ -741,6 +751,10 @@ exports.default = Ractive.extend({
 			this.set({ type: '' });
 		},
 		typepicked: function typepicked() {
+			if (!this.get('type')) return;
+
+			if (!this.get('field_name').trim()) return;
+
 			this.parent.prepend_attribute(this.get('type'), this.get('index'), this.get('field_name'));
 			this.set({ type: null });
 		}
@@ -967,6 +981,8 @@ exports.default = Ractive.extend({
 			this.set({ type: '' });
 		},
 		typepicked: function typepicked() {
+			if (!this.get('type')) return;
+
 			this.parent.prepend_attribute(this.get('type'), this.get('index'));
 			this.set({ type: null });
 		}

@@ -29,7 +29,7 @@ export default Ractive.extend({
 							</td>
 							<td class='jsoneditor-separator'>:</td>
 							<td class='jsoneditor-tree' style='width: 100%;'>
-								<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>
+								<select value={{type}} on-change='typepicked' style='margin-top: 3px;' disabled={{type_disabled}}>
 									<option value=''>Select Data Type</option>
 									<option value='S'>String</option>
 									<option value='N'>Number</option>
@@ -59,9 +59,19 @@ export default Ractive.extend({
 		return {
 			type: null,
 			field_name: '',
+			type_disabled: true,
 		}
 	},
 	on: {
+		init: function() {
+			this.observe('field_name', function(n,o,kp) {
+				if (n.trim()) {
+					this.set({type_disabled: false})
+				} else {
+					this.set({type_disabled: true})
+				}
+			})
+		},
 		delete: function() {
 			this.set({type: null,})
 		},
@@ -69,6 +79,12 @@ export default Ractive.extend({
 			this.set({type: ''})
 		},
 		typepicked: function() {
+			if (!this.get('type'))
+				return;
+
+			if (!this.get('field_name').trim())
+				return;
+
 			this.parent.prepend_attribute( this.get('type'), this.get('index'), this.get('field_name'))
 			this.set({type: null})
 		}
