@@ -21,10 +21,7 @@ export default Ractive.extend({
 						<td class='jsoneditor-datatype'>Binary</td>
 						<td class='jsoneditor-separator'>:</td>
 						<td class='jsoneditor-tree' style='width: 100%;'>
-							<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary' />
-							<!--
-							<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' >{{ updated_value }}</div>
-							-->
+							<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary {{#if valid === false}}error{{/if}}' on-keyup='validate' on-blur='validate' />
 						</td>
 					</tr>
 				</tbody>
@@ -79,6 +76,17 @@ export default Ractive.extend({
 
 			})
 
+		},
+		validate: function() {
+
+			var valid=false;
+			try {
+				var new_ui8 = Uint8Array.from(atob(this.get('updated_value')), function (c) { return c.charCodeAt(0) } );
+				valid=true;
+			} catch (e) {}
+
+
+			this.set('valid', valid )
 		},
 		delete: function() {
 			this.parent.delete_key( this.get('key') )
