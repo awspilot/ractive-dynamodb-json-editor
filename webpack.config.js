@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { DuplicatesPlugin } = require("inspectpack/plugin");
 
 module.exports = {
 	node: false,
@@ -14,6 +15,7 @@ module.exports = {
 		})]
 	},
 	plugins: [
+		//new DuplicatesPlugin({ emitErrors: true, verbose: true }),
 	],
 	entry: {
 		'ractive-dynamodb-json-editor': path.resolve(__dirname, './src/dynamodb-json-editor.ractive.html'),
