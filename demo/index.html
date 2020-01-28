@@ -6,7 +6,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/1.3.8/ractive.min.js"></script>
 		<script src="../dist/ractive-dynamodb-json-editor.min.js"></script>
 		<style>
-			body {background-color: #eee; }
+			body {background-color: #e2e2f3; }
 		</style>
 	</head>
 	<body>
@@ -91,8 +91,23 @@
 				}
 			},
 			template: `
+
+			<div style="position: absolute;top: 50px;left: 50px;width: 210px;bottom: 50px;">
+				<select value={{theme}}>
+
+					<option value="aws">AWS</option>
+
+					<option value="windows">Windows Classic</option>
+
+					<option value="atomdark">Atom Dark</option>
+					<option value="atomlight">Atom Light</option>
+
+				</select>
+			</div>
+			<div style="position: absolute;top: 50px;left: 260px;right: 50px;bottom: 50px;">
 				<jsoneditor item={{item}} navigationBar="{{true}}" style="float:left;height: 500px;margin: 20px;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;" />
 				<jsoneditor item={{item}} style="float:left;height: 500px;" style="margin: 20px" mode="code" />
+			</div>
 			`
 		})
 	</Script>
