@@ -4,9 +4,9 @@
 	"description": "ractivejs component for editing dynamodb style json object",
 	"main": "dist/ractive-dynamodb-json-editor.min.js",
 	"scripts": {
-		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 7777",
-		"build": "webpack",
-		"watch": "webpack --config webpack.config.js --watch"
+		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 7777:80 nginx",
+		"start": "webpack -w --config webpack.config.js",
+		"build": "webpack"
 	},
 	"repository": {
 		"type": "git",
