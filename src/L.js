@@ -13,6 +13,8 @@ import M from './M';
 
 import appender from './L_appender.js';
 
+import { IconTrash } from './svgicons';
+
 var L = Ractive.extend({
 	components: {
 		S: S,
@@ -28,6 +30,7 @@ var L = Ractive.extend({
 		M: M,
 
 		appender: appender,
+		'icon-trash': IconTrash,
 	},
 
 	onconfig: function(options) {
@@ -65,7 +68,7 @@ var L = Ractive.extend({
 		</td>
 		<td>
 			<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >
-				<div class='trash-solid icon'></div>
+				<icon-trash />
 			</button>
 		</td>
 	</tr>

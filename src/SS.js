@@ -1,10 +1,11 @@
 
 import S from './S';
-
+import { IconTrash } from './svgicons';
 
 export default Ractive.extend({
 	components: {
 		S: S,
+		'icon-trash': IconTrash,
 	},
 	template: `
 
@@ -36,7 +37,7 @@ export default Ractive.extend({
 		</td>
 		<td>
 			<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >
-				<div class='trash-solid icon'></div>
+				<icon-trash />
 			</button>
 		</td>
 	</tr>
