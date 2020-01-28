@@ -7,7 +7,7 @@
 		exports["ractive-dynamodb-json-editor"] = factory(require("ractive"));
 	else
 		root["ractive-dynamodb-json-editor"] = factory(root["Ractive"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__13__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__14__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -562,7 +562,7 @@ var _M = __webpack_require__(10);
 
 var _M2 = _interopRequireDefault(_M);
 
-var _L_appender = __webpack_require__(14);
+var _L_appender = __webpack_require__(15);
 
 var _L_appender2 = _interopRequireDefault(_L_appender);
 
@@ -859,7 +859,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _ractive = __webpack_require__(13);
+__webpack_require__(13);
+
+var _ractive = __webpack_require__(14);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
@@ -910,49 +912,7 @@ var _M_appender2 = _interopRequireDefault(_M_appender);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _ractive2.default.extend({
-	template: { v: 4, t: [{ t: 7, e: "div", m: [{ t: 13, n: "class", f: "jsoneditor", g: 1 }, { n: "style", f: [{ t: 2, r: "style" }], t: 13 }], f: [{ t: 7, e: "div", m: [{ n: "class", f: ["jsoneditor-menu ", { t: 2, rx: { r: ".", m: [{ r: [], s: "\"menu-class\"" }] } }], t: 13 }, { n: "style", f: [{ t: 2, rx: { r: ".", m: [{ r: [], s: "\"menu-style\"" }] } }], t: 13 }], f: [{ t: 7, e: "select", m: [{ n: "value", f: [{ t: 2, r: "mode" }], t: 13 }, { n: "style", f: "height: 20px;margin: 6px;", t: 13 }], f: [{ t: 7, e: "option", m: [{ n: "value", f: "tree", t: 13 }], f: ["Tree"] }, " ", { t: 7, e: "option", m: [{ n: "value", f: "code", t: 13 }], f: ["Code"] }] }] }, " ", { t: 4, f: [{ t: 7, e: "div", m: [{ n: "class", f: ["jsoneditor-navbar ", { t: 2, x: { r: ["navbar", "class"], s: "_0-_1" } }], t: 13 }, { n: "style", f: [{ t: 2, rx: { r: ".", m: [{ r: [], s: "\"navbar-style\"" }] } }], t: 13 }] }], n: 50, x: { r: ["mode", "navigationBar"], s: "(_0===\"tree\")&&(_1===true)" } }, " ", { t: 7, e: "div", m: [{ n: "class", f: ["jsoneditor-outer has-main-menu-bar ", { t: 4, f: ["has-nav-bar"], n: 50, x: { r: ["mode", "navigationBar"], s: "(_0===\"tree\")&&(_1===true)" } }], t: 13 }], f: [{ t: 4, f: [{ t: 7, e: "textarea", m: [{ n: "style", f: "width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;", t: 13 }], f: [{ t: 2, x: { r: ["item"], s: "JSON.stringify(_0,null,\"\\t\")" } }] }], n: 50, x: { r: ["mode"], s: "_0===\"code\"" } }, { t: 4, f: [{ t: 7, e: "div", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "class", f: "jsoneditor-tree-inner", g: 1 }], f: [{ t: 7, e: "table", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }, { n: "border", f: "0", t: 13, g: 1 }], f: [{ t: 7, e: "colgroup", f: [{ t: 7, e: "col", m: [{ n: "width", f: "24px", t: 13, g: 1 }] }, { t: 7, e: "col", m: [{ n: "width", f: "24px", t: 13, g: 1 }] }, { t: 7, e: "col" }] }, " ", { t: 7, e: "tbody", f: [{ t: 7, e: "tr", m: [{ t: 13, n: "class", f: " jsoneditor-expandable", g: 1 }], f: [{ t: 7, e: "td" }, " ", { t: 7, e: "td", f: [{ t: 7, e: "button", m: [{ t: 13, n: "class", f: "jsoneditor-button jsoneditor-contextmenu", g: 1 }, { n: "type", f: "button", t: 13, g: 1 }] }] }, " ", { t: 7, e: "td", f: [{ t: 7, e: "table", m: [{ t: 13, n: "style", f: "border-collapse: collapse; margin-left: 0px;", g: 1 }, { t: 13, n: "class", f: "jsoneditor-values", g: 1 }], f: [{ t: 7, e: "tbody", f: [{ t: 7, e: "tr", f: [{ t: 7, e: "td", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }], f: [{ t: 7, e: "button", m: [{ n: "type", f: "button", t: 13, g: 1 }, { n: "class", f: ["jsoneditor-button ", { t: 4, f: ["jsoneditor-expanded"], n: 50, r: "open" }, { t: 4, f: ["jsoneditor-collapsed"], n: 51, l: 1 }], t: 13 }, { n: ["click"], t: 70, f: { r: ["@this"], s: "[_0.toggle(\"open\")]" } }] }] }, " ", { t: 7, e: "td", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "class", f: "jsoneditor-readonly", g: 1 }, { n: "contenteditable", f: "false", t: 13 }], f: ["Item"] }] }, " ", { t: 7, e: "td", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }] }, " ", { t: 7, e: "td", m: [{ t: 13, n: "class", f: "jsoneditor-tree", g: 1 }], f: [{ t: 7, e: "div", m: [{ t: 13, n: "class", f: "jsoneditor-value jsoneditor-object", g: 1 }], f: ["{ ", { t: 2, x: { r: ["item"], s: "Object.keys(_0).length" } }, " }"] }] }] }] }] }] }, " ", { t: 7, e: "td", f: [] }] }, " ", { t: 4, f: [{ t: 7, e: "appender", m: [{ n: "level", f: [{ t: 2, x: { r: [], s: "0" } }], t: 13 }, { n: "index", f: [{ t: 2, x: { r: [], s: "null" } }], t: 13 }] }, " ", { t: 4, f: [{ t: 4, f: [{ t: 7, e: "S", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".S" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"S\")" } }, " ", { t: 4, f: [{ t: 7, e: "N", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".N" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"N\")" } }, " ", { t: 4, f: [{ t: 7, e: "BOOL", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".BOOL" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"BOOL\")" } }, " ", { t: 4, f: [{ t: 7, e: "NULL", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"NULL\")" } }, " ", { t: 4, f: [{ t: 7, e: "B", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".B" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"B\")" } }, " ", { t: 4, f: [{ t: 7, e: "L", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".L" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"L\")" } }, " ", { t: 4, f: [{ t: 7, e: "M", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".M" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"M\")" } }, " ", { t: 4, f: [{ t: 7, e: "SS", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".SS" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"SS\")" } }, " ", { t: 4, f: [{ t: 7, e: "NS", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".NS" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"NS\")" } }, " ", { t: 4, f: [{ t: 7, e: "BS", m: [{ n: "key", f: [{ t: 2, r: "@key" }], t: 13 }, { n: "value", f: [{ t: 2, r: ".BS" }], t: 13 }, { n: "level", f: "1", t: 13, g: 1 }] }], n: 50, x: { r: ["."], s: "_0.hasOwnProperty(\"BS\")" } }, " ", { t: 7, e: "appender", m: [{ n: "level", f: [{ t: 2, x: { r: [], s: "0" } }], t: 13 }, { n: "index", f: [{ t: 2, r: "@key" }], t: 13 }] }], n: 52, r: "item" }], n: 50, r: "open" }] }] }] }] }], n: 51, l: 1 }] }] }], e: { "0": function _() {
-				return 0;
-			}, "\"menu-class\"": function menuClass() {
-				return "menu-class";
-			}, "\"menu-style\"": function menuStyle() {
-				return "menu-style";
-			}, "_0-_1": function _0_1(_0, _1) {
-				return _0 - _1;
-			}, "\"navbar-style\"": function navbarStyle() {
-				return "navbar-style";
-			}, "(_0===\"tree\")&&(_1===true)": function _0Tree_1True(_0, _1) {
-				return _0 === "tree" && _1 === true;
-			}, "JSON.stringify(_0,null,\"\\t\")": function JSONStringify_0NullT(_0) {
-				return JSON.stringify(_0, null, "\t");
-			}, "_0===\"code\"": function _0Code(_0) {
-				return _0 === "code";
-			}, "[_0.toggle(\"open\")]": function _0ToggleOpen(_0) {
-				return [_0.toggle("open")];
-			}, "Object.keys(_0).length": function ObjectKeys_0Length(_0) {
-				return Object.keys(_0).length;
-			}, "null": function _null() {
-				return null;
-			}, "_0.hasOwnProperty(\"S\")": function _0HasOwnPropertyS(_0) {
-				return _0.hasOwnProperty("S");
-			}, "_0.hasOwnProperty(\"N\")": function _0HasOwnPropertyN(_0) {
-				return _0.hasOwnProperty("N");
-			}, "_0.hasOwnProperty(\"BOOL\")": function _0HasOwnPropertyBOOL(_0) {
-				return _0.hasOwnProperty("BOOL");
-			}, "_0.hasOwnProperty(\"NULL\")": function _0HasOwnPropertyNULL(_0) {
-				return _0.hasOwnProperty("NULL");
-			}, "_0.hasOwnProperty(\"B\")": function _0HasOwnPropertyB(_0) {
-				return _0.hasOwnProperty("B");
-			}, "_0.hasOwnProperty(\"L\")": function _0HasOwnPropertyL(_0) {
-				return _0.hasOwnProperty("L");
-			}, "_0.hasOwnProperty(\"M\")": function _0HasOwnPropertyM(_0) {
-				return _0.hasOwnProperty("M");
-			}, "_0.hasOwnProperty(\"SS\")": function _0HasOwnPropertySS(_0) {
-				return _0.hasOwnProperty("SS");
-			}, "_0.hasOwnProperty(\"NS\")": function _0HasOwnPropertyNS(_0) {
-				return _0.hasOwnProperty("NS");
-			}, "_0.hasOwnProperty(\"BS\")": function _0HasOwnPropertyBS(_0) {
-				return _0.hasOwnProperty("BS");
-			} } },
+	template: '\n\n\t\t<div class="awspilot-dynamodb-json-editor jsoneditor" style="{{style}}">\n\t\t\t<div class="jsoneditor-menu {{.[\'menu-class\']}}" style="{{.[\'menu-style\']}}">\n\t\t\t\t<select value=\'{{mode}}\' style="height: 20px;margin: 6px;">\n\t\t\t\t\t<option value=\'tree\'>Tree</option>\n\t\t\t\t\t<option value=\'code\'>Code</option>\n\t\t\t\t</select>\n\t\t\t</div>\n\t\t\t{{#if ((mode === \'tree\') && (navigationBar === true)) }}\n\t\t\t\t<div class="jsoneditor-navbar {{navbar-class}}" style={{.[\'navbar-style\']}}></div>\n\t\t\t{{/if}}\n\n\t\t\t<div class="jsoneditor-outer has-main-menu-bar {{#if ((mode === \'tree\') && (navigationBar === true)) }}has-nav-bar{{/if}}">\n\t\t\t\t{{#if mode === \'code\'}}\n\t\t\t\t\t<textarea style="width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;">{{ JSON.stringify(item, null, "\\t") }}</textarea>\n\t\t\t\t{{else}}\n\t\t\t\t<div class="jsoneditor-tree">\n\t\t\t\t\t<div class="jsoneditor-tree-inner">\n\n\t\t\t\t\t\t<table border=0 class="jsoneditor-tree">\n\t\t\t\t\t\t\t<colgroup><col width="24px"><col width="24px"><col></colgroup>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr class=" jsoneditor-expandable">\n\t\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t\t<td><button type="button" class="jsoneditor-button jsoneditor-contextmenu"></button></td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<table class="jsoneditor-values" style="border-collapse: collapse; margin-left: 0px;">\n\t\t\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree"><button type="button" class="jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}" on-click=\'@this.toggle(\'open\')\' ></button></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div contenteditable="false" class="jsoneditor-readonly">Item</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree"></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="jsoneditor-value jsoneditor-object">{ {{ Object.keys(item).length }} }</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#if open}}\n\t\t\t\t\t\t\t\t\t<appender level={{0}} index={{null}}/>\n\t\t\t\t\t\t\t\t{{#each item }}\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'S\')}}\n\t\t\t\t\t\t\t\t\t\t<S key={{@key}} value={{ .S }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'N\')}}\n\t\t\t\t\t\t\t\t\t\t<N key={{@key}} value={{ .N }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'BOOL\')}}\n\t\t\t\t\t\t\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'NULL\')}}\n\t\t\t\t\t\t\t\t\t\t<NULL key={{@key}} level="1" level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'B\')}}\n\t\t\t\t\t\t\t\t\t\t<B key={{@key}} value={{ .B }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'L\')}}\n\t\t\t\t\t\t\t\t\t\t<L key={{@key}} value={{ .L }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'M\')}}\n\t\t\t\t\t\t\t\t\t\t<M key={{@key}} value={{ .M }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'SS\')}}\n\t\t\t\t\t\t\t\t\t\t<SS key={{@key}} value={{ .SS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'NS\')}}\n\t\t\t\t\t\t\t\t\t\t<NS key={{@key}} value={{ .NS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'BS\')}}\n\t\t\t\t\t\t\t\t\t\t<BS key={{@key}} value={{ .BS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t<appender level={{0}} index={{@key}}/>\n\t\t\t\t\t\t\t\t{{/each}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t{{/if}}\n\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t',
 	components: {
 		S: _S2.default,
 		N: _N2.default,
@@ -969,7 +929,7 @@ exports.default = _ractive2.default.extend({
 
 		appender: _M_appender2.default
 	},
-	css: ".jsoneditor { display: 'inline-block'; color: #1a1a1a; border: thin solid #f4a460; box-sizing: border-box; width: 100%; height: 100%; position: relative; padding: 0; line-height: 100%; width: 534px; background-color: #fff; } .jsoneditor-menu { width: 100%; height: 35px; padding: 2px; margin: 0; box-sizing: border-box; color: #fff; border-bottom: 1px solid #3883fa; background-color: #f4a460; border-color: #f4a460; } .jsoneditor-navbar { width: 100%; height: 26px; line-height: 26px; padding: 0; margin: 0; box-sizing: border-box; color: grey; overflow: hidden; font-family: arial,sans-serif; font-size: 10pt; border-bottom: 1px solid #d3d3d3; background-color: #ebebeb; } .jsoneditor-outer { overflow: auto; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; box-sizing: border-box; } .jsoneditor-outer.has-main-menu-bar { top: 35px; } .jsoneditor-outer.has-main-menu-bar.has-nav-bar { top: 61px; } .jsoneditor table { border-collapse: collapse; width: auto; } div.jsoneditor-tree table.jsoneditor-tree { border-collapse: collapse; border-spacing: 0; width: 100%; } div.jsoneditor td, div.jsoneditor th, div.jsoneditor tr { padding: 0;margin: 0; } div.jsoneditor tr:hover {background-color: #f0f0f0;} div.jsoneditor tr.jsoneditor-appender {} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) {position: relative;height: 4px;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) > div {cursor: row-resize;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(4) {width: 32px;} div.jsoneditor tr.jsoneditor-appender:hover {background-color: transparent;} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) {} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) > div {height: 4px;background-color: #000099} .jsoneditor-field {white-space: nowrap} .jsoneditor-popover, .jsoneditor-schema-error, div.jsoneditor td, div.jsoneditor textarea, div.jsoneditor th, div.jsoneditor-field, div.jsoneditor-value, pre.jsoneditor-preview { font-family: \"dejavu sans mono\",\"droid sans mono\",consolas,monaco,\"lucida console\",\"courier new\",courier,monospace,sans-serif; font-size: 10pt; color: #1a1a1a; } div.jsoneditor-default, div.jsoneditor-field, div.jsoneditor-readonly, div.jsoneditor-value { border: 1px solid transparent; min-height: 16px; min-width: 32px; padding: 2px; margin: 1px; word-wrap: break-word; float: left; } div.jsoneditor td { vertical-align: top; } .jsoneditor td, .jsoneditor th { padding: 0; display: table-cell; text-align: left; vertical-align: inherit; border-radius: inherit; } div.jsoneditor-tree button.jsoneditor-contextmenu { background-position: -48px -72px; } /* buttons */ div.jsoneditor-tree button.jsoneditor-button { width: 24px; height: 24px; padding: 0; margin: 0; border: none; cursor: pointer; background-color: transparent; outline: none; } div.jsoneditor-tree button.jsoneditor-invisible { visibility: hidden; } div.jsoneditor-tree button.jsoneditor-expanded { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-expanded:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000; } div.jsoneditor-tree button.jsoneditor-collapsed { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-collapsed:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 5px solid #000; } div.jsoneditor td.jsoneditor-tree { vertical-align: top; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-datatype { padding: 3px 0; vertical-align: top; color: grey; } .jsoneditor-contextmenu { position: absolute; box-sizing: content-box; z-index: 99; } div.jsoneditor-value.jsoneditor-string { color: #006000; } input.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #006000;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } textarea.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;outline: none;color: #006000;width:100%;box-sizing:border-box;display:block;max-width:100%;font:13px Tahoma, cursive; } textarea.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-number { color: #ee422e; } input.jsoneditor-input.jsoneditor-number { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ee422e;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-number:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-boolean { color: #ff8c00; } input.jsoneditor-input.jsoneditor-boolean { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ff8c00;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-boolean:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-boolean.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-binary { color: #004ed0; } input.jsoneditor-input.jsoneditor-binary { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-binary:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-binary.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-null { color: #004ed0; } .jsoneditor-input.jsoneditor-null { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent;line-height: 27px; } /* icons and btns */ .btn-delete-attribute {display: none;} tr:hover .btn-delete-attribute {display: inline-block;} .icon.icon-trash {fill: #aaa;width: 20px;height: 20px;padding-top: 3px;} ",
+
 	data: function data() {
 		return {
 			open: true,
@@ -1039,12 +999,18 @@ exports.default = _ractive2.default.extend({
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__13__;
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__14__;
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
