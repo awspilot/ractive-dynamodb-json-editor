@@ -3,6 +3,7 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { DuplicatesPlugin } = require("inspectpack/plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	node: false,
@@ -17,7 +18,15 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }), // { filename: "[name].[contentHash].css" }
+		new CopyPlugin([
+			{ from: 'less/theme.less', to: 'less/theme.less' },
+			{ from: 'less/common.less', to: 'less/common.less' },
+			{ from: 'less/theme-atomlight.less', to: 'less/theme-atomlight.less' },
+			{ from: 'less/theme-atomdark.less', to: 'less/theme-atomdark.less' },
+			{ from: 'less/theme-atom.less', to: 'less/theme-atom.less' },
+		]),
 		//new DuplicatesPlugin({ emitErrors: true, verbose: true }),
+
 	],
 	entry: {
 		'ractive-dynamodb-json-editor': path.resolve(__dirname, './src/dynamodb-json-editor.js'),
