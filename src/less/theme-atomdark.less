@@ -1,0 +1,26 @@
+.awspilot-dynamodb-json-editor.theme-atomdark {
+	& {
+
+		@import "theme-atom/one-dark-ui/ui-variables-custom";
+		@import "theme-atom/one-dark-ui/ui-variables";
+
+		@awspilot-jsoneditor-background-color: transparent;
+		@awspilot-jsoneditor-border-top: 0px;
+		@awspilot-jsoneditor-border-right: 0px;
+		@awspilot-jsoneditor-border-bottom: 0px;
+		@awspilot-jsoneditor-border-left: 0px;
+
+		@awspilot-jsoneditor-menu-background: transparent;
+		@awspilot-jsoneditor-menu-border-bottom: 0px;
+
+		@awspilot-jsoneditor-content-spacing: 5px;
+		@awspilot-jsoneditor-content-background: @tab-background-color-active;
+		@awspilot-jsoneditor-content-border-top: 1px solid @base-border-color;
+		@awspilot-jsoneditor-content-border-right: 1px solid @base-border-color;
+		@awspilot-jsoneditor-content-border-bottom: 1px solid @base-border-color;
+		@awspilot-jsoneditor-content-border-left: 1px solid @base-border-color;
+		@awspilot-jsoneditor-content-box-shodow: none;
+
+		@import (multiple,reference) "./theme.less";
+	}
+}
