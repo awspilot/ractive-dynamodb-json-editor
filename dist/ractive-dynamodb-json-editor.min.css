@@ -8,7 +8,6 @@
   padding: 0;
   line-height: 100%;
   width: 534px;
-  background-color: #fff;
   /* buttons */
   /* icons and btns */
 }
@@ -19,9 +18,6 @@
   margin: 0;
   box-sizing: border-box;
   color: #fff;
-  border-bottom: 1px solid #3883fa;
-  background-color: #f4a460;
-  border-color: #f4a460;
 }
 .awspilot-dynamodb-json-editor .jsoneditor-navbar {
   width: 100%;
