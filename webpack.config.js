@@ -21,6 +21,8 @@ module.exports = {
 		new CopyPlugin([
 			{ from: 'less/theme.less', to: 'less/theme.less' },
 			{ from: 'less/common.less', to: 'less/common.less' },
+			{ from: 'less/theme-aws.less', to: 'less/theme-aws.less' },
+			{ from: 'less/theme-windows.less', to: 'less/theme-indows.less' },
 			{ from: 'less/theme-atomlight.less', to: 'less/theme-atomlight.less' },
 			{ from: 'less/theme-atomdark.less', to: 'less/theme-atomdark.less' },
 			{ from: 'less/theme-atom.less', to: 'less/theme-atom.less' },
