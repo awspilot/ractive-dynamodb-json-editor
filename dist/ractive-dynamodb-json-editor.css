@@ -1,7 +1,6 @@
 .awspilot-dynamodb-json-editor {
   display: 'inline-block';
   color: #1a1a1a;
-  border: thin solid #f4a460;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -42,9 +41,6 @@
   overflow: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
   box-sizing: border-box;
 }
 .awspilot-dynamodb-json-editor .jsoneditor-outer.has-main-menu-bar {
@@ -312,5 +308,125 @@
   width: 20px;
   height: 20px;
   padding-top: 3px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark {
+  background-color: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-menu {
+  background: transparent;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  background: hsl(220, 24%, 20%);
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  box-shadow: none;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight {
+  background-color: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-menu {
+  background: transparent;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  background: hsl(220, 1%, 98%);
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  box-shadow: none;
+}
+.awspilot-dynamodb-json-editor.theme-windows {
+  background-color: #d4d0c8;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-menu {
+  background: #d4d0c8;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  background: #fff;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  border-top: 1px solid #2e2f2f;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #484a4b;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  box-shadow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+}
+.awspilot-dynamodb-json-editor.theme-aws {
+  background-color: #fff;
+  border-top: 1px solid #97b0f8;
+  border-right: 1px solid #97b0f8;
+  border-bottom: 1px solid #97b0f8;
+  border-left: 1px solid #97b0f8;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-menu {
+  background: #d5ddf6;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-menu {
+  border-bottom: 1px solid #97b0f8;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  background: #fff;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  box-shadow: none;
 }
 
