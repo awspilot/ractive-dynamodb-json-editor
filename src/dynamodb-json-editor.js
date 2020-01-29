@@ -25,7 +25,7 @@
 	export default Ractive.extend({
 		template: `
 
-		<div class="awspilot-dynamodb-json-editor jsoneditor" style="{{style}}">
+		<div class="awspilot-dynamodb-json-editor jsoneditor theme-{{theme}}" style="{{style}}">
 			<div class="jsoneditor-menu {{.['menu-class']}}" style="{{.['menu-style']}}">
 				<select value='{{mode}}' style="height: 20px;margin: 6px;">
 					<option value='tree'>Tree</option>
